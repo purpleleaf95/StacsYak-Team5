@@ -1,0 +1,82 @@
+#header {
+  text-align: center;
+  margin: 0px;
+  padding: 15px;
+  background-color: #FF5722;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+body {
+  margin: 0px;
+  text-align: center;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+button {
+  width: 150px;
+  opacity: 0.8;
+  color: #FFFFFF;
+  background: #9E9E9E;
+  padding: 10px;
+  border: 5px solid #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+table,
+th,
+td {
+  margin: auto;
+  border-bottom: 3px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+  padding-right: 30px;
+  font-size: 10pt;
+  text-align: left;
+}
+input[type=text]{
+  width: 500px;
+  border: none;
+  border-bottom: 2px solid #FF5722;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+input[type=submit]{
+  background-color: #FF5722;
+  border: none;
+  color: white;
+  width: 600px;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+textarea {
+  background-color: #9E9E9E;
+  color: white;
+  margin-top: 10px;
+  width: 600px;
+  height: 200px;
+  padding: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
