@@ -9,11 +9,11 @@ function displayGet(){
   document.getElementById("showPost").style.display = "none";
   document.getElementById("showVote").style.display = "none";
   document.getElementById("showDelete").style.display = "none";
+  var table = document.getElementById("getResult");
   //  Send HTTP request
   fetch(URL)
     .then(response => response.json())
     .then(data => {
-      let table = document.getElementById("getResult");
       table.innerHTML = "";
       //This function aims to add a cell to a row
       var addCell = function(tag, text) {
@@ -41,7 +41,8 @@ function displayGet(){
         addCell("td", data[index]["userVote"]);
         table.appendChild(tr);
       }
-    });
+    })
+    .catch(error => table.innerHTML = error);
 }
 
 function displayPost() {
