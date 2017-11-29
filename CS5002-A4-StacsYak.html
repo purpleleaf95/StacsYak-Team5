@@ -17,10 +17,10 @@
     <h1>StacsYak - Team 5</h1>
   </div>
   <div>
-    <button id="getMethod" onclick=displayGet()> GET </button>
-    <button id="postMethod" onclick=displayPost()> POST </button>
-    <button id="voteMethod" onclick=displayVote()> VOTE </button>
-    <button id="deleteMethod" onclick=displayDelete()> DELETE </button>
+    <button id="getMethod" onclick="displayGet()"> GET </button>
+    <button id="postMethod" onclick="displayPost()"> POST </button>
+    <button id="voteMethod" onclick="displayVote()"> VOTE </button>
+    <button id="deleteMethod" onclick="displayDelete()"> DELETE </button>
   </div>
   <!--Get Block -->
   <div id="showGet" style="padding:10px;  display:none">
@@ -28,28 +28,27 @@
   </div>
   <!--Post Block -->
   <div id="showPost" style="padding:10px;  display:none">
-    <form id="postResult">
       NICK NAME: <input type="text" name="name"><br>
       CONTENT: <br><textarea id= "postContent" type="text" name="content" cols="50" rows="5"></textarea><br>
-      <input id="submit" onclick=postYak() type="submit" value="Post">
-    </form>
+      <input id="submit" onclick="postYak()" type="submit" value="Post">
   </div>
   <!--Vote Block -->
   <div id="showVote" style="padding:10px;  display:none">
-    <form id="VoteResult">
       ID: <input type="text" style="width:400px" name="name">
       <input id="up" type="submit" style="width:50px; padding: 10px; font-size:10px" value="UP">
       <input id="down" type="submit" style="width:50px; padding: 10px; font-size:10px" value="DOWN">
-    </form>
   </div>
   <!--Delete Block -->
   <div id="showDelete" style="padding:10px;  display:none">
-    <form id="deleteResult">
-      USER KEY: <input type="text" style="width:400px" name="name">
+<!-- <<<<<<< Updated upstream -->
+      <!-- USER KEY: <input type="text" style="width:400px" name="name">
       <input id="up" type="submit" style="width:100px; padding: 10px; font-size:10px" value="SHOW"><br>
       ID: <input type="text" style="width:400px" name="name">
       <input id="up" type="submit" style="width:100px; padding: 10px; font-size:10px" value="DELETE">
-    </form>
+<! ======= -->
+      ID: <input id= "delete" type="text" style="width:400px" name="name">
+      <input id="deleteSubmit" type="submit" onclick="del()" value="Delete" style="width:100px; padding: 10px; font-size:10px" >
+<!-- >>>>>>> Stashed changes -->
   </div>
 </body>
 
