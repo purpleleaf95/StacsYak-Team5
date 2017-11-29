@@ -10,6 +10,7 @@
   <script src="CS5002-A4-StacsYak-displayPost.js"></script>
   <script src="CS5002-A4-StacsYak-displayVote.js"></script>
   <script src="CS5002-A4-StacsYak-displayDelete.js"></script>
+  <script src="CS5002-A4-StacsYak-displayUser.js"></script>
 </head>
 
 <body>
@@ -21,6 +22,7 @@
     <button id="postMethod" onclick="displayPost()"> POST </button>
     <button id="voteMethod" onclick="displayVote()"> VOTE </button>
     <button id="deleteMethod" onclick="displayDelete()"> DELETE </button>
+    <button id="userPro" onclick="displayUser()"> USER PROFILE </button>
   </div>
   <!--Get Block -->
   <div id="showGet" style="padding:10px;  display:none">
@@ -49,6 +51,13 @@
       ID: <input id= "delete" type="text" style="width:400px" name="name">
       <input id="deleteSubmit" type="submit" onclick="del()" value="Delete" style="width:100px; padding: 10px; font-size:10px" >
 <!-- >>>>>>> Stashed changes -->
+  </div>
+  <!--User profile Block -->
+  <div id="showUser" style="padding:10px;  display:none">
+    <h5 id="userKey">User Key:</h5> Change Key: <input id = "key" type="text" style="width:200px"><button id="changeKey" type="submit" style="width:100px; padding: 10px; font-size:10px" value="change">Change</button><br>
+    <h5 id="userNick">User Nickname: </h5>Change Nickname: <input id = "nick" type="text" style="width:200px"><button id="changeNick" type="submit" style="width:100px; padding: 10px; font-size:10px" value="change">Change</button><br>
+    <h5 id="userYaks">User Yaks:</h5><br>
+    <h5 id="userVote">User Votes: </h5>
   </div>
 </body>
 

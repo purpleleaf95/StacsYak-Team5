@@ -5,6 +5,7 @@ function displayDelete() {
   document.getElementById("showPost").style.display = "none";
   document.getElementById("showVote").style.display = "none";
   document.getElementById("showDelete").style.display = "block";
+  document.getElementById("showUser").style.display = "none";
 
 }
 

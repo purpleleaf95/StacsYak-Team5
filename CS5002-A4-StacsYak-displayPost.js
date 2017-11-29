@@ -11,6 +11,7 @@ function displayPost() {
   document.getElementById("showPost").style.display = "block";
   document.getElementById("showVote").style.display = "none";
   document.getElementById("showDelete").style.display = "none";
+  document.getElementById("showUser").style.display = "none";
   //document.getElementById("showSucc").style.display="none";
 }
 
