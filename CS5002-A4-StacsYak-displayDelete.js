@@ -16,7 +16,7 @@ function del() {
     method: "DELETE"
   };
   //  Send HTTP request
-  fetch(URL + postID + keyQuery, initObject)
+  fetch(URL + "/" + postID + keyQuery, initObject)
     .then (response => response.json())
     .then (data => {
       if(data["error"] == undefined) {
