@@ -5,6 +5,7 @@ function displayVote() {
   document.getElementById("showPost").style.display = "none";
   document.getElementById("showVote").style.display = "block";
   document.getElementById("showDelete").style.display = "none";
+  document.getElementById("showUser").style.display = "none";
 }
 
 function upVote(){

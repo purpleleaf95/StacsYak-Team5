@@ -5,6 +5,7 @@ function displayGet(){
   document.getElementById("showPost").style.display = "none";
   document.getElementById("showVote").style.display = "none";
   document.getElementById("showDelete").style.display = "none";
+  document.getElementById("showUser").style.display = "none";
   var table = document.getElementById("getResult");
   //  Send HTTP request
   fetch(URL + keyQuery)
