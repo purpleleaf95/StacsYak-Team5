@@ -66,6 +66,20 @@ input[type=submit]{
   font-weight: bold;
   text-transform: uppercase;
 }
+button[type=submit]{
+  background-color: #FF5722;
+  border: none;
+  color: white;
+  width: 600px;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
 textarea {
   background-color: #9E9E9E;
