@@ -7,14 +7,44 @@ function displayVote() {
   document.getElementById("showDelete").style.display = "none";
 }
 
-function vote(){
-  var postID = document.getElementById("delete").value;
+function upVote(){
+  var yakId = document.getElementById("voteID").value;
+  var vote = document.getElementById("up");
 
-  fetch(URL + postID + keyQuery, {
-    method: "DELETE"
-  }).then (response => response.json())
-    .then (yaks => { console.log("the yak id is" + postID);
+var message = {
+  direction: vote
+};
 
-    })
-    .catch(error => console.log(error));
+const msg = {
+  method: "POST",
+  headers: {
+    "Content-Type":"application/json"
+  },
+  body: JSON.stringify(message)
+};
+
+//  Send HTTP request
+fetch(URL + yakId + "/" + vote + keyQuery, msg)
+.then(response => response.json());
+}
+
+function downVote(){
+  var yakId = document.getElementById("voteID").value;
+  var vote = document.getElementById("down");
+
+var message = {
+  direction: vote
+};
+
+const msg = {
+  method: "POST",
+  headers: {
+    "Content-Type":"application/json"
+  },
+  body: JSON.stringify(message)
+};
+
+//  Send HTTP request
+fetch(URL + yakId + "/" + vote + keyQuery, msg)
+.then(response => response.json());
 }
