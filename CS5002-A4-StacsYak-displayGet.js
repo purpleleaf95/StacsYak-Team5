@@ -7,7 +7,7 @@ function displayGet(){
   document.getElementById("showDelete").style.display = "none";
   var table = document.getElementById("getResult");
   //  Send HTTP request
-  fetch(URL)
+  fetch(URL + keyQuery)
     .then(response => response.json())
     .then(data => {
       table.innerHTML = "";
