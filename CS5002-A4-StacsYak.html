@@ -27,10 +27,10 @@
     <table id="getResult"></table>
   </div>
   <!--Post Block -->
+  <div id="showError" style="padding:10px;  display:block"></div>
   <div id="showPost" style="padding:10px;  display:none">
-      NICK NAME: <input type="text" name="name"><br>
-      CONTENT: <br><textarea id= "postContent" type="text" name="content" cols="50" rows="5"></textarea><br>
-      <input id="submit" onclick="postYak()" type="submit" value="Post">
+      CONTENT: <br><textarea id="postContent" type="text" name="content" cols="50" rows="5"></textarea><br>
+      <button id="submit" onclick="postYak()" type="submit" value="Post">POST</button>
   </div>
   <!--Vote Block -->
   <div id="showVote" style="padding:10px;  display:none">
