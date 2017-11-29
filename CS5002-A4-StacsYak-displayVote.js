@@ -9,7 +9,7 @@ function displayVote() {
 
 function upVote(){
   var yakId = document.getElementById("voteID").value;
-  var vote = document.getElementById("up");
+  var vote = document.getElementById("up").value;
 
 var message = {
   direction: vote
@@ -24,13 +24,14 @@ const msg = {
 };
 
 //  Send HTTP request
-fetch(URL + yakId + "/" + vote + keyQuery, msg)
-.then(response => response.json());
+fetch(URL + yakId + "/vote" + keyQuery, msg)
+.then(response => response.json())
+.catch(error => console.log(error));
 }
 
 function downVote(){
   var yakId = document.getElementById("voteID").value;
-  var vote = document.getElementById("down");
+  var vote = document.getElementById("down").value;
 
 var message = {
   direction: vote
@@ -45,6 +46,7 @@ const msg = {
 };
 
 //  Send HTTP request
-fetch(URL + yakId + "/" + vote + keyQuery, msg)
-.then(response => response.json());
+fetch(URL + yakId + "/vote" + keyQuery, msg)
+.then(response => response.json())
+.catch(error => console.log(error));
 }
