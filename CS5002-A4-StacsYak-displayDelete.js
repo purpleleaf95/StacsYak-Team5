@@ -1,4 +1,4 @@
-//  This function aims to delete a Yak
+//  This function aims to set the style of delete button
 function displayDelete() {
   //  Set style
   document.getElementById("showGet").style.display = "none";
@@ -8,15 +8,20 @@ function displayDelete() {
 
 }
 
-
+//  This function aims to delete a Yak
 function del() {
-  var postID = document.getElementById("delete").value;
-
-  fetch(URL + postID + keyQuery, {
+  let postID = document.getElementById("delete").value;
+  let initObject = {
     method: "DELETE"
-  }).then (response => response.json())
-    .then (yaks => { console.log("the yak id is" + postID);
-
-    })
-    .catch(error => console.log(error));
+  };
+  //  Send HTTP request
+  fetch(URL + postID + keyQuery, initObject)
+    .then (response => response.json())
+    .then (data => {
+      if(data["error"] == undefined) {
+        alert("Yak(ID:" + postID + ") is successfully deleted.");
+      } else {
+        alert("Delete failed. (Error: " + data["error"] + ")");
+      }
+    });
 }
