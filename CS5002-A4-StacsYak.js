@@ -27,6 +27,7 @@ function displayGet(){
       addCell("th", "TIME");
       addCell("th", "ID");
       addCell("th", "USER NAME");
+      addCell("th", "CONTENT");
       addCell("th", "TOTAL VOTES");
       addCell("th", "USER VOTE");
       table.appendChild(tr);
@@ -37,6 +38,7 @@ function displayGet(){
         addCell("td", data[index]["timestamp"]);
         addCell("td", data[index]["id"]);
         addCell("td", data[index]["userNick"]);
+        addCell("td", data[index]["content"]);
         addCell("td", data[index]["votes"]);
         addCell("td", data[index]["userVote"]);
         table.appendChild(tr);
