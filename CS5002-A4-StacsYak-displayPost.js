@@ -26,7 +26,7 @@ function postYak(){
   .then(response => response.json())
   .then (data => {
     if(data["error"] == undefined) {
-      alert("Your Yak is successfully post.");
+      alert("Yak is successfully post.");
     } else {
       alert("Post failed. (Error: " + data["error"] + ")");
     }
