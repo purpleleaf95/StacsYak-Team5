@@ -45,10 +45,25 @@
   </div>
   <!--myProfile Block -->
   <div id="showMyProfile" style="padding:10px;  display:none">
-    <h5 id="userKey">User Key:</h5> Change Key: <input id = "key" type="text" style="width:200px"><button id="changeKey" type="submit" style="width:100px; padding: 10px; font-size:10px" value="change">Change</button><br>
-    <h5 id="userNick">User Nickname: </h5>Change Nickname: <input id = "nick" type="text" style="width:200px"><button id="changeNick" type="submit" style="width:100px; padding: 10px; font-size:10px" value="change">Change</button><br>
-    <h5 id="userYaks">User Yaks:</h5><br>
-    <h5 id="userVote">User Votes: </h5>
+    <table>
+      <tr>
+        <th> MY ID </th>
+        <th> MY NICKNAME </th>
+        <th> MY SCORE </th>
+        <th> MY TOTAL POSTS </th>
+      </tr>
+      <tr>
+        <td id="myId"></td>
+        <td id="myNickname"></td>
+        <td id="myScore"></td>
+        <td id="myTotalPosts"></td>
+      </tr>
+    </table>
+    <br>
+      <span>Change Nickname:</span>
+      <input id = "newNick" type="text" style="width:200px">
+      <button onclick="changeNick()" type="submit" style="width:100px; padding: 10px; font-size:10px" value="change">Change</button>
+    </br>
   </div>
 </body>
 
