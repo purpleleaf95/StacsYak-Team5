@@ -45,6 +45,7 @@ function displayAllYak(){
           allUserNick.push(data[index]["userNick"]);
         }
       }
+      allUserNick.sort();
       //  Add selectByUserNick options
       for(let index = 0; index < allUserNick.length; index++) {
         addOption(selectedUserNick, allUserNick[index]);
