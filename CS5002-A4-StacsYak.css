@@ -18,9 +18,9 @@ button:hover {
 }
 
 .cellButton {
-  width:100PX;
+  width:60px;
   padding: 10px;
-  font-size:10px
+  font-size:8px
 }
 
 .submitButton{
@@ -55,17 +55,49 @@ button {
   overflow: hidden;
 }
 
-table,
-th,
-td {
+th{
   margin: auto;
+  width:100%;
+  height:100%;
   border-bottom: 3px solid black;
   border-collapse: collapse;
   padding: 10px;
+  font-size: 10pt;
+  text-align: center;
+}
+ table td:nth-child(3),
+ table td:nth-child(6){
+  margin: auto;
+  width:400px;
+  border-bottom: 3px solid black;
+  border-collapse: collapse;
+  font-size: 10pt;
+  text-align: center;
+  word-wrap: break-word;
+}
+table{
+  margin: 20px;
+  width:1200px;
+  border-bottom: 3px solid black;
+  border-collapse: collapse;
+  padding: 20px;
   padding-right: 30px;
   font-size: 10pt;
   text-align: left;
+  table-layout: fixed;
 }
+
+table td:nth-child(1),
+table td:nth-child(2),
+table td:nth-child(4),
+table td:nth-child(5) {
+  width:50px;
+  border-bottom: 3px solid black;
+  border-collapse: collapse;
+  font-size: 10pt;
+  text-align: center;
+}
+
 input[type=text]{
   width: 500px;
   border: none;
