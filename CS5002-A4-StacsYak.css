@@ -71,6 +71,7 @@ th{
  table td:nth-child(6){
   margin: auto;
   width:400px;
+  height:auto;
   border-bottom: 3px solid black;
   border-collapse: collapse;
   font-size: 10pt;
@@ -89,11 +90,21 @@ table{
   table-layout: fixed;
 }
 
+#myId, #myNickname, #myTotalPosts, #myScore{
+  margin: 20px;
+  width:100%;
+  border-bottom: 3px solid black;
+  border-collapse: collapse;
+  padding: 20px;
+  text-align: center;
+}
+
 table td:nth-child(1),
 table td:nth-child(2),
 table td:nth-child(4),
 table td:nth-child(5) {
   width:50px;
+  height:auto;
   border-bottom: 3px solid black;
   border-collapse: collapse;
   font-size: 10pt;
