@@ -4,8 +4,8 @@ function displayGet(){
   // Set style
   document.getElementById("showGet").style.display = "block";
   document.getElementById("showPost").style.display = "none";
-  document.getElementById("showVote").style.display = "none";
-  document.getElementById("showDelete").style.display = "none";
+  // document.getElementById("showVote").style.display = "none";
+  // document.getElementById("showDelete").style.display = "none";
   document.getElementById("showUser").style.display = "none";
   var table = document.getElementById("getResult");
   //  Send HTTP request
