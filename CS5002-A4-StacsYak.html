@@ -30,22 +30,42 @@
       NEW YAK: <input type="text" id="postContentInAllYak" style="width:400px" name="name">
       <button class="submitButton" onclick="postInAllYak()" type="submit" value="Post" style="width:100px; padding: 10px; font-size:10px">POST</button>
     </div>
-    <div>
-      <div id="filterBar" align="left" style="margin-left:20px">
-      <select id="filter">
-        <option>Vote highest</option>
-        <option>Vote lowest</option>
-        <option>Latest</option>
-        <option>Oldest</option>
+    <div id="filterBar" align="left" style="margin-left:20px">
+      <br>
+        <span> Post within the latest </span>
+        <select id="selectMinHour" onchange=filterByMultiElements()></select>
+        <span> and </span>
+        <select id="selectMaxHour" onchange=filterByMultiElements()></select>
+        <span> hours by </span>
+        <select id="selectUserNick" onchange=filterByMultiElements()></select>
+        <span> &nbsp;|&nbsp;Total votes ranges from </span>
+        <select id="selectMinTotalVotes" onchange=filterByMultiElements()></select>
+        <span> to </span>
+        <select id="selectMaxTotalVotes" onchange=filterByMultiElements()></select>
+        <span> &nbsp;|&nbsp;My vote type is </span>
+        <select id="selectMyVoteType" onchange=filterByMultiElements()></select>
+        <span> &nbsp;|&nbsp;Contents include </span>
+        <input type="search" name="selectContent" id="selectContent" onchange=filterByMultiElements()>
+      </br>
+      <br>
+        <span> Sorted by </span>
+        <select id="sortedBy" onchange=filterByMultiElements()>
+          <option>Time</option>
+          <option>User name</option>
+          <option>Content</option>
+          <option>Total votes</option>
+          <option>User vote</option>
         </select>
+        <span> &nbsp;|&nbsp;Ascending/Descending </span>
+        <select id="sortedBy" onchange=filterByMultiElements()>
+          <option>Descending</option>
+          <option>Ascending</option>
+        </select>
+      </br>
       </div>
-      <div id="searchBar" align="left" style="margin-left:20px">
-        Search by ID:
-        <input type="search" name="byName">
-        <button class="cellButton" value="Go">Go</button>
+      <div>
+        <table id="allYakResult"></table>
       </div>
-
-      <table id="allYakResult"></table>
     </div>
   </div>
   <!--myYak Block -->
@@ -62,12 +82,14 @@
   <div id="showMyProfile" style="padding:10px;  display:none">
     <table>
       <tr>
+        <th> MY KEY </th>
         <th> MY ID </th>
         <th> MY NICKNAME </th>
         <th> MY SCORE </th>
         <th> MY TOTAL POSTS </th>
       </tr>
       <tr>
+        <td id="myKey"></td>
         <td id="myId"></td>
         <td id="myNickname"></td>
         <td id="myScore"></td>
