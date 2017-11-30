@@ -11,6 +11,7 @@ function displayDelete() {
 
 //  This function aims to delete a Yak
 function del() {
+//  console.log(postID);
   const postID = document.getElementById("delete").value;
   const initObject = {
     method: "DELETE"
