@@ -33,39 +33,50 @@
     <div id="filterBar" align="left" style="margin-left:20px">
       <br>
         <span> Post within the latest </span>
-        <select id="selectMinHour" onchange=filterByMultiElements()></select>
+        <select id="selectByMinHour" onchange=filterByMultiElements()>
+          <option> 1 </option>
+        </select>
         <span> and </span>
-        <select id="selectMaxHour" onchange=filterByMultiElements()></select>
+        <select id="selectByMaxHour" onchange=filterByMultiElements()>
+          <option> 48 </option>
+        </select>
         <span> hours by </span>
-        <select id="selectUserNick" onchange=filterByMultiElements()></select>
-        <span> &nbsp;|&nbsp;Total votes ranges from </span>
-        <select id="selectMinTotalVotes" onchange=filterByMultiElements()></select>
+        <select id="selectByUserNick" onchange=filterByMultiElements()>
+          <option> All </option>
+        </select>
+        <span> (Nickname)&nbsp;|&nbsp;Total votes ranges from </span>
+        <select id="selectByMinTotalVotes" onchange=filterByMultiElements()>
+          <option> All </option>
+        </select>
         <span> to </span>
-        <select id="selectMaxTotalVotes" onchange=filterByMultiElements()></select>
+        <select id="selectByMaxTotalVotes" onchange=filterByMultiElements()>
+          <option> All </option>
+        </select>
         <span> &nbsp;|&nbsp;My vote type is </span>
-        <select id="selectMyVoteType" onchange=filterByMultiElements()></select>
+        <select id="selectByMyVoteType" onchange=filterByMultiElements()>
+          <option> All </option>
+        </select>
         <span> &nbsp;|&nbsp;Contents include </span>
-        <input type="search" name="selectContent" id="selectContent" onchange=filterByMultiElements()>
+        <input type="search" name="selectByContent" id="selectContent" onchange=filterByMultiElements()>
       </br>
       <br>
         <span> Sorted by </span>
-        <select id="sortedBy" onchange=filterByMultiElements()>
+        <select id="sortBy" onchange=filterByMultiElements()>
           <option>Time</option>
-          <option>User name</option>
+          <option>Nickname</option>
           <option>Content</option>
           <option>Total votes</option>
           <option>User vote</option>
         </select>
         <span> &nbsp;|&nbsp;Ascending/Descending </span>
-        <select id="sortedBy" onchange=filterByMultiElements()>
+        <select id="ascendingOrDescending" onchange=filterByMultiElements()>
           <option>Descending</option>
           <option>Ascending</option>
         </select>
       </br>
-      </div>
-      <div>
-        <table id="allYakResult"></table>
-      </div>
+    </div>
+    <div>
+      <table id="allYakResult"></table>
     </div>
   </div>
   <!--myYak Block -->
