@@ -22,11 +22,13 @@ function displayMyYak(){
         };
         // This function aims to add a Button to a row
         function addCellButtion(text, onclickFunction){
+          let td = document.createElement("td");
           let button = document.createElement("button");
           button.innerHTML = text;
           button.className = "cellButton";
           button.onclick = onclickFunction;
-          tr.appendChild(button);
+          td.appendChild(button);
+          tr.appendChild(td);
         }
         //  Show the table's head
         let tr = document.createElement("tr");
@@ -35,7 +37,9 @@ function displayMyYak(){
         addCell("th", "CONTENT");
         addCell("th", "TOTAL VOTES");
         addCell("th", "USER VOTE");
-        addCell("th", "DELETE/UPVOTE/DOWNVOTE");
+        addCell("th", "DELETE");
+        addCell("th", "UPVOTE");
+        addCell("th", "DOWNVOTE");
         table.appendChild(tr);
         //  Show the table's contents
         for(let index = 0; index < data.length; index++){
