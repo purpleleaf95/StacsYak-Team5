@@ -36,16 +36,25 @@ function displayGet(){
         //  Show the table's contents
         for(let index = 0; index < data.length; index++){
           //  Create a new row
-          var postID = data[index]["id"];
+          var postId = data[index]["id"];
+
+          // let deleteButton = document.createElement('span');
+          // deleteButton.innerHTML = '<button id="delete" onclick="del()" value = '+ postID  +' style="width:100px; padding: 10px; font-size:10px"> Delete </button>';
+          //
+          // let upButton = document.createElement('span');
+          // upButton.innerHTML = '<button id="up" onclick = "upVote()" value = '+ postID  +' style="width:50px; padding: 10px; font-size:10px"> + </button>';
+          //
+          // let downButton = document.createElement('span');
+          // downButton.innerHTML = '<button id="down" onclick = "downVote()" value = '+ postID  + ' style="width:50px; padding: 10px; font-size:10px"> - </button>';
 
           let deleteButton = document.createElement('span');
-          deleteButton.innerHTML = '<button id="delete" onclick="del()" value = '+ postID  +' style="width:100px; padding: 10px; font-size:10px"> Delete </button>';
+          deleteButton.innerHTML = '<button id="delete" onclick="del(\'' + postId + '\')"  style="width:100px; padding: 10px; font-size:10px"> Delete </button>';
 
           let upButton = document.createElement('span');
-          upButton.innerHTML = '<button id="up" onclick = "upVote()" value = '+ postID  +' style="width:50px; padding: 10px; font-size:10px"> + </button>';
+          upButton.innerHTML = '<button id="up" onclick = "upVote(\'' + postId + '\')" style="width:50px; padding: 10px; font-size:10px"> + </button>';
 
           let downButton = document.createElement('span');
-          downButton.innerHTML = '<button id="down" onclick = "downVote()" value = '+ postID  + ' style="width:50px; padding: 10px; font-size:10px"> - </button>';
+          downButton.innerHTML = '<button id="down" onclick = "downVote(\'' + postId + '\')" style="width:50px; padding: 10px; font-size:10px"> - </button>';
 
 
           tr = document.createElement("tr");

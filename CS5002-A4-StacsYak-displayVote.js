@@ -8,10 +8,10 @@ function displayVote() {
   document.getElementById("showUser").style.display = "none";
 }
 
-function upVote(){
+function upVote(yakId){
   //var yakId = document.getElementById("voteID").value;
   //var vote = document.getElementById("up").value;
-  var yakId = document.getElementById("up").value;
+  //var yakId = document.getElementById("up").value;
   vote = "up";
 var message = {
   direction: vote
@@ -31,10 +31,12 @@ fetch(URL+ "/" + yakId + "/vote" + keyQuery, msg)
 .catch(error => console.log(error));
 }
 
-function downVote(){
+function downVote(yakId){
 //  var yakId = document.getElementById("voteID").value;
 //  var vote = document.getElementById("down").value;
-var yakId = document.getElementById("down").value;
+
+//only picking up first element with down element
+//var yakId = document.getElementById("down").value;
 vote = "down";
 
 var message = {

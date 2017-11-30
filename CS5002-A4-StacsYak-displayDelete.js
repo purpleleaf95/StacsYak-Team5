@@ -10,14 +10,14 @@ function displayDelete() {
 }
 
 //  This function aims to delete a Yak
-function del() {
+function del(postID) {
 //  console.log(postID);
-  const postID = document.getElementById("delete").value;
+//  const postID = document.getElementById("delete").value;
   const initObject = {
     method: "DELETE"
   };
   //  Send HTTP request
-  fetch(URL + "/" + postID + keyQuery, initObject)
+  fetch(URL + "/"+ postID + keyQuery, initObject)
     .then (response => response.json())
     .then (data => {
       if(data["error"] == undefined) {
