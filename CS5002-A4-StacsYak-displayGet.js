@@ -31,15 +31,21 @@ function displayGet(){
         addCell("th", "CONTENT");
         addCell("th", "TOTAL VOTES");
         addCell("th", "USER VOTE");
-        addCell("th", "DELETE");
-        addCell ("th","VOTE");
+        addCell("th", " ");
         table.appendChild(tr);
         //  Show the table's contents
         for(let index = 0; index < data.length; index++){
           //  Create a new row
 
-          let span = document.createElement('span');
-          span.innerHTML = '<button id="delete" onclick="del()"> Delete </button>';
+          let deleteButton = document.createElement('span');
+          deleteButton.innerHTML = '<button id="delete" onclick="del()"> Delete </button>';
+
+          let upButton = document.createElement('span');
+          upButton.innerHTML = '<button id="up" onclick = "upVote()" style="width:50px; padding: 10px; font-size:10px" value="up"> + </button>';
+
+          let downButton = document.createElement('span');
+          downButton.innerHTML = '<button id="down" onclick = "downVote()" type="submit" style="width:50px; padding: 10px; font-size:10px" value="down"> - </button>';
+
 
           tr = document.createElement("tr");
           addCell("td", data[index]["timestamp"]);
@@ -48,7 +54,9 @@ function displayGet(){
           addCell("td", data[index]["content"]);
           addCell("td", data[index]["votes"]);
           addCell("td", data[index]["userVote"]);
-          tr.appendChild(span);
+          tr.appendChild(deleteButton);
+          tr.appendChild(upButton);
+          tr.appendChild(downButton);
 
           table.appendChild(tr);
         }
