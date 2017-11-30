@@ -9,7 +9,9 @@
   <script src="CS5002-A4-StacsYak-del.js"></script>
   <script src="CS5002-A4-StacsYak-post+postInAllYak+postInMyYak.js"></script>
   <script src="CS5002-A4-StacsYak-vote.js"></script>
-  <script src="CS5002-A4-StacsYak-filterByOneElement+filterByTwoElements+filterByMultiElements.js"></script>
+  <script src="CS5002-A4-StacsYak-filterByOneElement+filterBetweenHours+filterBetweenVotes+sortBy.js"></script>
+  <script src="CS5002-A4-StacsYak-filterByMultiElementsInAllYak.js"></script>
+  <script src="CS5002-A4-StacsYak-filterByMultiElementsInMyYak.js"></script>
   <script src="CS5002-A4-StacsYak-displayAllYak.js"></script>
   <script src="CS5002-A4-StacsYak-displayMyYak.js"></script>
   <script src="CS5002-A4-StacsYak-displayMyProfile+changeNick.js"></script>
@@ -34,39 +36,39 @@
     <div id="filterBar" align="left" style="margin-left:20px">
       <br>
         <span> Post between the latest </span>
-        <select id="selectByMinHour" onchange=filterByMultiElements()>
+        <select id="selectByMinHour" onchange=filterByMultiElementsInAllYak()>
           <option> 1 </option>
         </select>
         <span> and </span>
-        <select id="selectByMaxHour" onchange=filterByMultiElements()>
+        <select id="selectByMaxHour" onchange=filterByMultiElementsInAllYak()>
           <option> 48 </option>
         </select>
         <span> hours by </span>
-        <select id="selectByUserNick" style="width:50px" onchange=filterByMultiElements()>
+        <select id="selectByUserNick" style="width:50px" onchange=filterByMultiElementsInAllYak()>
           <option> All </option>
         </select>
         <span> (Nickname)&nbsp;|&nbsp;Total votes ranges from </span>
-        <select id="selectByMinTotalVotes" onchange=filterByMultiElements()>
+        <select id="selectByMinTotalVotes" onchange=filterByMultiElementsInAllYak()>
           <option> All </option>
         </select>
         <span> to </span>
-        <select id="selectByMaxTotalVotes" onchange=filterByMultiElements()>
+        <select id="selectByMaxTotalVotes" onchange=filterByMultiElementsInAllYak()>
           <option> All </option>
         </select>
         <span> &nbsp;|&nbsp;My vote type is </span>
-        <select id="selectByMyVoteType" onchange=filterByMultiElements()>
+        <select id="selectByMyVoteType" onchange=filterByMultiElementsInAllYak()>
           <option> All </option>
         </select>
         <span> &nbsp;|&nbsp;Contents include </span>
-        <input type="search" name="selectByContent" id="selectContent" onchange=filterByMultiElements()>
+        <input type="search" name="selectByContent" id="selectContent" onchange=filterByMultiElementsInAllYak()>
       </br>
       <br>
         <span> Sorted by </span>
-        <select id="sortBy" onchange=filterByMultiElements()>
+        <select id="sortBy" onchange=filterByMultiElementsInAllYak()>
           <option>Time</option>
         </select>
         <span> &nbsp;|&nbsp;Ascending/Descending </span>
-        <select id="ascendingOrDescending" onchange=filterByMultiElements()>
+        <select id="ascendingOrDescending" onchange=filterByMultiElementsInAllYak()>
           <option>Descending</option>
         </select>
       </br>
