@@ -11,6 +11,7 @@ function displayMyProfile(){
       if(data["error"] != undefined){
         document.getElementById("showMyProfile").innerHTML = String("Error: " + data["error"]);
       } else {
+        document.getElementById("myKey").innerHTML = key;
         document.getElementById("myId").innerHTML = data["id"];
         document.getElementById("myNickname").innerHTML = data["userNick"];
         document.getElementById("myScore").innerHTML = data["score"];
