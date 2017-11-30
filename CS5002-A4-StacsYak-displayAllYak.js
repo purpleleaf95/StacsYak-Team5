@@ -25,12 +25,51 @@ function displayAllYak(){
   addOption(selectedMyVoteType, "none");
   addOption(selectedMyVoteType, "up");
   addOption(selectedMyVoteType, "down");
+  let sortedByOptions = document.getElementById("sortBy");
+  addOption(sortedByOptions, "Nickname");
+  addOption(sortedByOptions, "Content");
+  addOption(sortedByOptions, "Total votes");
+  addOption(sortedByOptions, "User vote");
+  let ascendingOrDescendingOptions = document.getElementById("ascendingOrDescending");
+  addOption(ascendingOrDescendingOptions, "Ascending");
   //  Send HTTP request
   fetch(URL + "/yaks" + keyQuery)
     .then(response => response.json())
     .then(data => {
       //  Add options of dynamic select lists
-      
+      let selectedUserNick = document.getElementById("selectByUserNick");
+      let allUserNick = [];
+      for(let index = 0; index < data.length; index++){
+        //  If a specific user nickname cannot be found in allUserNick, put it to the end of the array
+        if(allUserNick.indexOf(data[index]["userNick"]) == -1) {
+          allUserNick.push(data[index]["userNick"]);
+        }
+      }
+      //  Add selectByUserNick options
+      for(let index = 0; index < allUserNick.length; index++) {
+        addOption(selectedUserNick, allUserNick[index]);
+      }
+      let allTotalVotes = [];
+      let minTotalVotes = data[0]["votes"];
+      let maxTotalVotes = data[0]["votes"];
+      for(let index = 0; index < data.length; index++){
+        if(allTotalVotes.indexOf(data[index]["votes"]) == -1) {
+          allTotalVotes.push(Number(data[index]["votes"]));
+          if(data[index]["votes"] < minTotalVotes){
+            minTotalVotes = data[index]["votes"];
+          } else if(data[index]["votes"] > maxTotalVotes){
+            maxTotalVotes = data[index]["votes"];
+          }
+        }
+      }
+      let selectedMinTotalVotes = document.getElementById("selectByMinTotalVotes");
+      for(let i = minTotalVotes; i <= maxTotalVotes; i++) {
+        addOption(selectedMinTotalVotes, i);
+      }
+      let selectedMaxTotalVotes = document.getElementById("selectByMaxTotalVotes");
+      for(let i = maxTotalVotes; i >= minTotalVotes; i--) {
+        addOption(selectedMaxTotalVotes, i);
+      }
       if(data["error"] != undefined){
         table.innerHTML = String("Error: " + data["error"]);
       } else {
