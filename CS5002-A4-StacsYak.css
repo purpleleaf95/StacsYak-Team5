@@ -20,7 +20,9 @@ button:hover {
 .cellButton {
   width:60px;
   padding: 10px;
-  font-size:8px
+  font-size:8px;
+  border-bottom: 3px solid black;
+  border-collapse: collapse;
 }
 
 .submitButton{
@@ -77,7 +79,7 @@ th{
 }
 table{
   margin: 20px;
-  width:1200px;
+  width:100%;
   border-bottom: 3px solid black;
   border-collapse: collapse;
   padding: 20px;
