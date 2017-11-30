@@ -31,6 +31,20 @@
       <button class="submitButton" onclick="postInAllYak()" type="submit" value="Post">POST</button>
     </div>
     <div>
+      <div id="filterBar" align="left" style="margin-left:20px">
+      <select id="filter">
+        <option>Vote highest</option>
+        <option>Vote lowest</option>
+        <option>Latest</option>
+        <option>Oldest</option>
+        </select>
+      </div>
+      <div id="searchBar" align="left" style="margin-left:20px">
+        Search by ID:
+        <input type="search" name="byName">
+        <button class="cellButton" value="Go">Go</button>
+      </div>
+
       <table id="allYakResult"></table>
     </div>
   </div>
