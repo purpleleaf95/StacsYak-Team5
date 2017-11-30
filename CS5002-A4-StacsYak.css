@@ -78,16 +78,9 @@ th{
   word-wrap: break-word;
 }
 table{
-  /*margin: 20px;
-  width:100%;
-  border-bottom: 3px solid black;
-  border-collapse: collapse;
-  padding: 20px;
-  font-size: 10pt;
-*/
   table-layout: fixed;
   text-align: left;
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 #myId, #myNickname, #myTotalPosts, #myScore{
