@@ -13,7 +13,7 @@ function displayGet(){
     .then(response => response.json())
     .then(data => {
       if(data["error"] != undefined){
-        table.innerHTML = String(data["error"]);
+        table.innerHTML = String("Error: " + data["error"]);
       } else {
         table.innerHTML = "";
         //This function aims to add a cell to a row
