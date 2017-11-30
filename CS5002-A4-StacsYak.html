@@ -27,8 +27,8 @@
   <!--allYak Block -->
   <div id="showAllYak" style="padding:10px;  display:none">
     <div>
-      NEW YAK: <textarea id="postContentInAllYak" type="text" name="content" cols="50" rows="1"></textarea>
-      <button class="submitButton" onclick="postInAllYak()" type="submit" value="Post">POST</button>
+      NEW YAK: <input type="text" id="postContentInAllYak" style="width:400px" name="name">
+      <button class="submitButton" onclick="postInAllYak()" type="submit" value="Post" style="width:100px; padding: 10px; font-size:10px">POST</button>
     </div>
     <div>
       <div id="filterBar" align="left" style="margin-left:20px">
@@ -51,8 +51,8 @@
   <!--myYak Block -->
   <div id="showMyYak" style="padding:10px;  display:none">
       <div>
-        NEW YAK: <textarea id="postContentInMyYak" type="text" name="content" cols="50" rows="1"></textarea>
-        <button class="submitButton" onclick="postInMyYak()" type="submit" value="Post">POST</button>
+        NEW YAK: <input type="text" id="postContentInMyYak" style="width:400px" name="name">
+        <button class="submitButton" onclick="postInMyYak()" type="submit" value="Post" style="width:100px; padding: 10px; font-size:10px">POST</button>
       </div>
       <div>
         <table id="myYakResult"></table>
