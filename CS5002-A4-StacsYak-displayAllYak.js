@@ -10,7 +10,7 @@ function displayAllYak(){
     .then(response => response.json())
     .then(data => {
       if(data["error"] != undefined){
-        document.getElementById("showAllYak").innerHTML = String("Error: " + data["error"]);
+        table.innerHTML = String("Error: " + data["error"]);
       } else {
         table.innerHTML = "";
         //This function aims to add a cell to a row
@@ -50,10 +50,10 @@ function displayAllYak(){
           addCellButtion("DELETE", function(){
             del(yakId, "allYak");
           });
-          addCellButtion("UPVOTE", function(){
+          addCellButtion("+", function(){
             vote(yakId, "up", "allYak");
           });
-          addCellButtion("DOWNVOTE", function(){
+          addCellButtion("-", function(){
             vote(yakId, "down", "allYak");
           });
           table.appendChild(tr);

@@ -50,10 +50,10 @@ function displayMyYak(){
           addCellButtion("DELETE", function(){
             del(yakId, "myYak");
           });
-          addCellButtion("UPVOTE", function(){
+          addCellButtion("+", function(){
             vote(yakId, "up", "myYak");
           });
-          addCellButtion("DOWNVOTE", function(){
+          addCellButtion("-", function(){
             vote(yakId, "down", "myYak");
           });
           table.appendChild(tr);
