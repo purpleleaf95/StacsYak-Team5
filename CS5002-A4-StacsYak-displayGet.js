@@ -38,10 +38,8 @@ function displayGet(){
         for(let index = 0; index < data.length; index++){
           //  Create a new row
 
-          let deleteButton = document.createElement('button');
-          // deleteButton.id = "delete";
-          // deleteButton.onclick = "del()";
-          deleteButton.innerHTML = "delete";
+          let span = document.createElement('span');
+          span.innerHTML = '<button id="delete" onclick="del()"> Delete </button>';
 
           tr = document.createElement("tr");
           addCell("td", data[index]["timestamp"]);
@@ -50,7 +48,7 @@ function displayGet(){
           addCell("td", data[index]["content"]);
           addCell("td", data[index]["votes"]);
           addCell("td", data[index]["userVote"]);
-          tr.appendChild(deleteButton);
+          tr.appendChild(span);
 
           table.appendChild(tr);
         }
