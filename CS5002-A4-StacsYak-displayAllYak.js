@@ -13,18 +13,18 @@ function displayAllYak(){
       selectList.appendChild(option);
   };
   //  Add options of fixed select lists
-  let selectedMinHour = document.getElementById("selectByMinHour");
+  let selectedMinHourOptions = document.getElementById("selectByMinHour");
   for (let hour = 2; hour <= 48; hour++) {
-    addOption(selectedMinHour, hour);
+    addOption(selectedMinHourOptions, hour);
   }
-  let selectedMaxHour = document.getElementById("selectByMaxHour");
+  let selectedMaxHourOptions = document.getElementById("selectByMaxHour");
   for (let hour = 47; hour >= 1; hour --) {
-    addOption(selectedMaxHour, hour);
+    addOption(selectedMaxHourOptions, hour);
   }
-  let selectedMyVoteType = document.getElementById("selectByMyVoteType");
-  addOption(selectedMyVoteType, "none");
-  addOption(selectedMyVoteType, "up");
-  addOption(selectedMyVoteType, "down");
+  let selectedMyVoteTypeOptions = document.getElementById("selectByMyVoteType");
+  addOption(selectedMyVoteTypeOptions, "none");
+  addOption(selectedMyVoteTypeOptions, "up");
+  addOption(selectedMyVoteTypeOptions, "down");
   let sortedByOptions = document.getElementById("sortBy");
   addOption(sortedByOptions, "Nickname");
   addOption(sortedByOptions, "Content");
@@ -37,7 +37,7 @@ function displayAllYak(){
     .then(response => response.json())
     .then(data => {
       //  Add options of dynamic select lists
-      let selectedUserNick = document.getElementById("selectByUserNick");
+      let selectedUserNickOptions = document.getElementById("selectByUserNick");
       let allUserNick = [];
       for(let index = 0; index < data.length; index++){
         //  If a specific user nickname cannot be found in allUserNick, put it to the end of the array
@@ -45,10 +45,18 @@ function displayAllYak(){
           allUserNick.push(data[index]["userNick"]);
         }
       }
-      allUserNick.sort();
+      allUserNick.sort(function sortByUpperCase(a, b){
+        if(a.toUpperCase() < b.toUpperCase()) {
+            return -1;
+        } else if (a.toUpperCase() > b.toUpperCase()){
+            return 1;
+        } else {
+            return 0;
+        }
+      });
       //  Add selectByUserNick options
       for(let index = 0; index < allUserNick.length; index++) {
-        addOption(selectedUserNick, allUserNick[index]);
+        addOption(selectedUserNickOptions, allUserNick[index]);
       }
       let allTotalVotes = [];
       let minTotalVotes = data[0]["votes"];
@@ -63,16 +71,16 @@ function displayAllYak(){
           }
         }
       }
-      let selectedMinTotalVotes = document.getElementById("selectByMinTotalVotes");
+      let selectedMinTotalVotesOptions = document.getElementById("selectByMinTotalVotes");
       for(let i = minTotalVotes; i <= maxTotalVotes; i++) {
-        addOption(selectedMinTotalVotes, i);
+        addOption(selectedMinTotalVotesOptions, i);
       }
-      let selectedMaxTotalVotes = document.getElementById("selectByMaxTotalVotes");
+      let selectedMaxTotalVotesOptions = document.getElementById("selectByMaxTotalVotes");
       for(let i = maxTotalVotes; i >= minTotalVotes; i--) {
-        addOption(selectedMaxTotalVotes, i);
+        addOption(selectedMaxTotalVotesOptions, i);
       }
       if(data["error"] != undefined){
-        table.innerHTML = String("Error: " + data["error"]);
+        document.getElementById("showAllYak").innerHTML = String("Error: " + data["error"]);
       } else {
         table.innerHTML = "";
         //This function aims to add a cell to a row
@@ -99,9 +107,9 @@ function displayAllYak(){
         addCell("th", "CONTENT");
         addCell("th", "TOTAL VOTES");
         addCell("th", "USER VOTE");
-        addCell("th", "DELETE/+/-");
-        addCell("th", "DELETE/+/-");
-        addCell("th", "DELETE/+/-");
+        addCell("th", "DELETE");
+        addCell("th", "UPVOTE");
+        addCell("th", "DOWNVOTE");
         table.appendChild(tr);
         //  Show the table's contents
         for(let index = 0; index < data.length; index++){
