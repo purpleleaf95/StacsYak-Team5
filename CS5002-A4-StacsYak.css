@@ -17,6 +17,27 @@ button:hover {
   opacity: 1;
 }
 
+.cellButton {
+  width:100PX;
+  padding: 10px;
+  font-size:10px
+}
+
+.submitButton{
+  background-color: #FF5722;
+  border: none;
+  color: white;
+  width: 100px;
+  padding: 10px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 button {
   width: 150px;
   opacity: 0.8;
@@ -66,27 +87,15 @@ input[type=submit]{
   font-weight: bold;
   text-transform: uppercase;
 }
-button[type=submit]{
-  background-color: #FF5722;
-  border: none;
-  color: white;
-  width: 600px;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
+
+
 
 textarea {
   background-color: #9E9E9E;
   color: white;
   margin-top: 10px;
   width: 600px;
-  height: 200px;
+  height: 50px;
   padding: 10px;
   font-size: 16px;
   box-sizing: border-box;
