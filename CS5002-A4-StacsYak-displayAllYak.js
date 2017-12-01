@@ -20,30 +20,30 @@ function displayAllYak(){
         document.getElementById("showAllYak").innerHTML = String("Error: " + data["error"]);
       } else {
         //  Add selectByHour options
-        let selectedMinHourOptions = document.getElementById("selectByMinHour");
+        let selectedMinHourOptions = document.getElementById("selectByMinHourInAllYak");
         for (let hour = 2; hour <= 48; hour++) {
           addOption(selectedMinHourOptions, hour);
         }
-        let selectedMaxHourOptions = document.getElementById("selectByMaxHour");
+        let selectedMaxHourOptions = document.getElementById("selectByMaxHourInAllYak");
         for (let hour = 47; hour >= 1; hour --) {
           addOption(selectedMaxHourOptions, hour);
         }
         //  Add selectByMyVoteType options
-        let selectedMyVoteTypeOptions = document.getElementById("selectByMyVoteType");
+        let selectedMyVoteTypeOptions = document.getElementById("selectByMyVoteTypeInAllYak");
         addOption(selectedMyVoteTypeOptions, "none");
         addOption(selectedMyVoteTypeOptions, "up");
         addOption(selectedMyVoteTypeOptions, "down");
         //  Add sortBy options
-        let sortedByOptions = document.getElementById("sortBy");
+        let sortedByOptions = document.getElementById("sortByInAllYak");
         addOption(sortedByOptions, "Nickname");
         addOption(sortedByOptions, "Content");
         addOption(sortedByOptions, "Total votes");
         addOption(sortedByOptions, "User vote");
         //  Add ascendingOrDescending options
-        let ascendingOrDescendingOptions = document.getElementById("ascendingOrDescending");
+        let ascendingOrDescendingOptions = document.getElementById("ascendingOrDescendingInAllYak");
         addOption(ascendingOrDescendingOptions, "Ascending");
         //  Add selectByUserNick options
-        let selectedUserNickOptions = document.getElementById("selectByUserNick");
+        let selectedUserNickOptions = document.getElementById("selectByUserNickInAllYak");
         let allUserNick = [];
         for(let index = 0; index < data.length; index++){
           //  If a specific user nickname cannot be found in allUserNick, put it to the end of the array
@@ -77,11 +77,11 @@ function displayAllYak(){
             }
           }
         }
-        let selectedMinTotalVotesOptions = document.getElementById("selectByMinTotalVotes");
+        let selectedMinTotalVotesOptions = document.getElementById("selectByMinTotalVotesInAllYak");
         for(let i = minTotalVotes; i <= maxTotalVotes; i++) {
           addOption(selectedMinTotalVotesOptions, i);
         }
-        let selectedMaxTotalVotesOptions = document.getElementById("selectByMaxTotalVotes");
+        let selectedMaxTotalVotesOptions = document.getElementById("selectByMaxTotalVotesInAllYak");
         for(let i = maxTotalVotes; i >= minTotalVotes; i--) {
           addOption(selectedMaxTotalVotesOptions, i);
         }

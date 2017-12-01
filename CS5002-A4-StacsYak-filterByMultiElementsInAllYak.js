@@ -1,13 +1,12 @@
 function filterByMultiElementsInAllYak(){
-  //  Get the value of selectYearToOptions
-  //const selectedMinHour = document.getElementById("selectByMinHour");
-  //const selectedMaxHour = document.getElementById("selectByMaxHour");
-  const selectedUserNick = document.getElementById("selectByUserNick").value;
-  const selectedMinTotalVotes = document.getElementById("selectByMinTotalVotes").value;
-  const selectedMaxTotalVotes = document.getElementById("selectByMaxTotalVotes").value;
-  const selectedMyVoteType = document.getElementById("selectByMyVoteType").value;
-  const sortedBy = document.getElementById("sortBy").value;
-  const ascendingOrDescending = document.getElementById("ascendingOrDescending").value;
+  //const selectedMinHour = document.getElementById("selectByMinHourInAllYak);
+  //const selectedMaxHour = document.getElementById("selectByMaxHourInAllYak");
+  const selectedUserNick = document.getElementById("selectByUserNickInAllYak").value;
+  const selectedMinTotalVotes = document.getElementById("selectByMinTotalVotesInAllYak").value;
+  const selectedMaxTotalVotes = document.getElementById("selectByMaxTotalVotesInAllYak").value;
+  const selectedMyVoteType = document.getElementById("selectByMyVoteTypeInAllYak").value;
+  const sortedBy = document.getElementById("sortByInAllYak").value;
+  const ascendingOrDescending = document.getElementById("ascendingOrDescendingInAllYak").value;
   //  Send HTTP request
   fetch(URL + "/yaks" + keyQuery)
     .then(response => response.json())
