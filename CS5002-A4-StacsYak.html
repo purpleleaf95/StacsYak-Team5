@@ -5,12 +5,16 @@
   <meta charset="utf-8">
   <title>StacsYak - Team 5</title>
   <link rel="stylesheet" type="text/css" href="CS5002-A4-StacsYak.css">
-  <script src="CS5002-A4-StacsYak-globalSettings.js"></script>
-  <script src="CS5002-A4-StacsYak-displayGet.js"></script>
-  <script src="CS5002-A4-StacsYak-displayPost.js"></script>
-  <script src="CS5002-A4-StacsYak-displayVote.js"></script>
-  <script src="CS5002-A4-StacsYak-displayDelete.js"></script>
-  <script src="CS5002-A4-StacsYak-displayUser.js"></script>
+  <script src="CS5002-A4-StacsYak-window.onload+changeKey.js"></script>
+  <script src="CS5002-A4-StacsYak-del.js"></script>
+  <script src="CS5002-A4-StacsYak-post+postInAllYak+postInMyYak.js"></script>
+  <script src="CS5002-A4-StacsYak-vote.js"></script>
+  <script src="CS5002-A4-StacsYak-filterByOneElement+filterBetweenHours+filterBetweenVotes+sortBy.js"></script>
+  <script src="CS5002-A4-StacsYak-filterByMultiElementsInAllYak.js"></script>
+  <script src="CS5002-A4-StacsYak-filterByMultiElementsInMyYak.js"></script>
+  <script src="CS5002-A4-StacsYak-displayAllYak.js"></script>
+  <script src="CS5002-A4-StacsYak-displayMyYak.js"></script>
+  <script src="CS5002-A4-StacsYak-displayMyProfile+changeNick.js"></script>
 </head>
 
 <body>
@@ -18,22 +22,74 @@
     <h1>StacsYak - Team 5</h1>
   </div>
   <div>
-    <button id="getMethod" onclick="displayGet()"> GET </button>
-    <button id="postMethod" onclick="displayPost()"> POST </button>
-    <!-- <button id="voteMethod" onclick="displayVote()"> VOTE </button> -->
-    <!-- <button id="deleteMethod" onclick="displayDelete()"> DELETE </button> -->
-    <button id="userPro" onclick="displayUser()"> USER PROFILE </button>
+
+    <button id="allYak" onclick="displayAllYak()"> ALL YAK </button>
+    <button id="myYak" onclick="displayMyYak()"> MY YAK </button>
+    <button id="myProfile" onclick="displayMyProfile()"> MY PROFILE </button>
+    <button id="changeKey" onclick="changeKey()"> CHANGE KEY </button>
+
   </div>
-  <!--Get Block -->
-  <div id="showGet" style="padding:10px;  display:none">
-    <table id="getResult"></table>
+  <!--allYak Block -->
+  <div id="showAllYak" style="padding:10px;  display:none">
+    <div>
+      NEW YAK: <input type="text" id="postContentInAllYak" style="width:400px" name="name">
+      <button class="submitButton" onclick="postInAllYak()" type="submit" value="Post" style="width:100px; padding: 10px; font-size:10px">POST</button>
+    </div>
+    <div id="filterBar" align="left" style="margin-left:20px">
+      <br>
+        <span> Post between the latest </span>
+        <select id="selectByMinHour" onchange=filterByMultiElementsInAllYak()>
+          <option> 1 </option>
+        </select>
+        <span> and </span>
+        <select id="selectByMaxHour" onchange=filterByMultiElementsInAllYak()>
+          <option> 48 </option>
+        </select>
+        <span> hours by </span>
+        <select id="selectByUserNick" style="width:50px" onchange=filterByMultiElementsInAllYak()>
+          <option> All </option>
+        </select>
+        <span> (Nickname)&nbsp;|&nbsp;Total votes ranges from </span>
+        <select id="selectByMinTotalVotes" onchange=filterByMultiElementsInAllYak()>
+          <option> All </option>
+        </select>
+        <span> to </span>
+        <select id="selectByMaxTotalVotes" onchange=filterByMultiElementsInAllYak()>
+          <option> All </option>
+        </select>
+        <span> &nbsp;|&nbsp;My vote type is </span>
+        <select id="selectByMyVoteType" onchange=filterByMultiElementsInAllYak()>
+          <option> All </option>
+        </select>
+        <span> &nbsp;|&nbsp;Contents include </span>
+        <input type="search" name="selectByContent" id="selectContent" onchange=filterByMultiElementsInAllYak()>
+      </br>
+      <br>
+        <span> Sorted by </span>
+        <select id="sortBy" onchange=filterByMultiElementsInAllYak()>
+          <option>Time</option>
+        </select>
+        <span> &nbsp;|&nbsp;Ascending/Descending </span>
+        <select id="ascendingOrDescending" onchange=filterByMultiElementsInAllYak()>
+          <option>Descending</option>
+        </select>
+      </br>
+    </div>
+    <div>
+      <table id="allYakResult"></table>
+    </div>
   </div>
-  <!--Post Block -->
-  <div id="showError" style="padding:10px;  display:block"></div>
-  <div id="showPost" style="padding:10px;  display:none">
-      CONTENT: <br><textarea id="postContent" type="text" name="content" cols="50" rows="5"></textarea><br>
-      <button id="submit" onclick="postYak()" type="submit" value="Post">POST</button>
+  <!--myYak Block -->
+  <div id="showMyYak" style="padding:10px;  display:none">
+      <div>
+        NEW YAK: <input type="text" id="postContentInMyYak" style="width:400px" name="name">
+        <button class="submitButton" onclick="postInMyYak()" type="submit" value="Post" style="width:100px; padding: 10px; font-size:10px">POST</button>
+      </div>
+      <div>
+        <table id="myYakResult"></table>
+      </div>
   </div>
+<<<<<<< HEAD
   <!--Vote Block -->
   <!-- <div id="showVote" style="padding:10px;  display:none"> -->
       <!-- ID: <input id = "voteID" type="text" style="width:400px" name="name"> -->
@@ -58,6 +114,31 @@
     <h5 id="userNick">User Nickname: </h5>Change Nickname: <input id = "nick" type="text" style="width:200px"><button id="changeNick" type="submit" style="width:100px; padding: 10px; font-size:10px" value="change">Change</button><br>
     <h5 id="userYaks">User Yaks:</h5><br>
     <h5 id="userVote">User Votes: </h5>
+=======
+  <!--myProfile Block -->
+  <div id="showMyProfile" style="padding:10px;  display:none">
+    <table>
+      <tr>
+        <th> MY KEY </th>
+        <th> MY ID </th>
+        <th> MY NICKNAME </th>
+        <th> MY SCORE </th>
+        <th> MY TOTAL POSTS </th>
+      </tr>
+      <tr>
+        <td id="myKey"></td>
+        <td id="myId"></td>
+        <td id="myNickname"></td>
+        <td id="myScore"></td>
+        <td id="myTotalPosts"></td>
+      </tr>
+    </table>
+    <br>
+      <span>Change Nickname:</span>
+      <input id = "newNick" type="text" style="width:200px">
+      <button onclick="changeNick()" type="submit" style="width:100px; padding: 10px; font-size:10px" value="change">Change</button>
+    </br>
+>>>>>>> origin/master
   </div>
 </body>
 
