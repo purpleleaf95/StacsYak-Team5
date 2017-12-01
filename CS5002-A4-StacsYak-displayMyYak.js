@@ -21,11 +21,11 @@ function displayMyYak(){
         };
         //  Add selectByHour options
         let selectedMinHourOptions = document.getElementById("selectByMinHourInMyYak");
-        for (let hour = 2; hour <= 48; hour++) {
+        for (let hour = 2; hour <= 7; hour++) {
           addOption(selectedMinHourOptions, hour);
         }
         let selectedMaxHourOptions = document.getElementById("selectByMaxHourInMyYak");
-        for (let hour = 47; hour >= 1; hour --) {
+        for (let hour = 6; hour >= 1; hour --) {
           addOption(selectedMaxHourOptions, hour);
         }
         //  Add selectByMyVoteType options
