@@ -83,6 +83,42 @@
         NEW YAK: <input type="text" id="postContentInMyYak" style="width:400px" name="name">
         <button class="submitButton" onclick="postInMyYak()" type="submit" value="Post" style="width:100px; padding: 10px; font-size:10px">POST</button>
       </div>
+      <div id="filterBar" align="left" style="margin-left:20px">
+        <br>
+          <span> Post between the latest </span>
+          <select id="selectByMinHourInMyYak" onchange=filterByMultiElementsInMyYak()>
+            <option> 1 </option>
+          </select>
+          <span> and </span>
+          <select id="selectByMaxHourInMyYak" onchange=filterByMultiElementsInMyYak()>
+            <option> 48 </option>
+          </select>
+          <span> days&nbsp;|&nbsp;Total votes ranges from </span>
+          <select id="selectByMinTotalVotesInMyYak" onchange=filterByMultiElementsInMyYak()>
+            <option> All </option>
+          </select>
+          <span> to </span>
+          <select id="selectByMaxTotalVotesInMyYak" onchange=filterByMultiElementsInMyYak()>
+            <option> All </option>
+          </select>
+          <span> &nbsp;|&nbsp;My vote type is </span>
+          <select id="selectByMyVoteTypeInMyYak" onchange=filterByMultiElementsInMyYak()>
+            <option> All </option>
+          </select>
+          <span> &nbsp;|&nbsp;Contents include </span>
+          <input type="search" name="selectByContentInMyYak" id="selectContent" onchange=filterByMultiElementsInMyYak()>
+        </br>
+        <br>
+          <span> Sorted by </span>
+          <select id="sortByInMyYak" onchange=filterByMultiElementsInMyYak()>
+            <option>Time</option>
+          </select>
+          <span> &nbsp;|&nbsp;Ascending/Descending </span>
+          <select id="ascendingOrDescendingInMyYak" onchange=filterByMultiElementsInMyYak()>
+            <option>Descending</option>
+          </select>
+        </br>
+      </div>
       <div>
         <table id="myYakResult"></table>
       </div>

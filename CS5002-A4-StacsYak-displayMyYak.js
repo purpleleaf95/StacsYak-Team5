@@ -12,6 +12,57 @@ function displayMyYak(){
       if(data["error"] != undefined){
         document.getElementById("showMyYak").innerHTML = String("Error: " + data["error"]);
       } else {
+        //  This function aims to add an option to the end of a select list
+        function addOption(selectList, data) {
+            let option = document.createElement("option");
+            option.value = data;
+            option.text = String(data);
+            selectList.appendChild(option);
+        };
+        //  Add selectByHour options
+        let selectedMinHourOptions = document.getElementById("selectByMinHourInMyYak");
+        for (let hour = 2; hour <= 48; hour++) {
+          addOption(selectedMinHourOptions, hour);
+        }
+        let selectedMaxHourOptions = document.getElementById("selectByMaxHourInMyYak");
+        for (let hour = 47; hour >= 1; hour --) {
+          addOption(selectedMaxHourOptions, hour);
+        }
+        //  Add selectByMyVoteType options
+        let selectedMyVoteTypeOptions = document.getElementById("selectByMyVoteTypeInMyYak");
+        addOption(selectedMyVoteTypeOptions, "none");
+        addOption(selectedMyVoteTypeOptions, "up");
+        addOption(selectedMyVoteTypeOptions, "down");
+        //  Add sortBy options
+        let sortedByOptions = document.getElementById("sortByInMyYak");
+        addOption(sortedByOptions, "Content");
+        addOption(sortedByOptions, "Total votes");
+        addOption(sortedByOptions, "User vote");
+        //  Add ascendingOrDescending options
+        let ascendingOrDescendingOptions = document.getElementById("ascendingOrDescendingInMyYak");
+        addOption(ascendingOrDescendingOptions, "Ascending");
+        //  Add selectByTotalVotes options
+        let allTotalVotes = [];
+        let minTotalVotes = data[0]["votes"];
+        let maxTotalVotes = data[0]["votes"];
+        for(let index = 0; index < data.length; index++){
+          if(allTotalVotes.indexOf(data[index]["votes"]) == -1) {
+            allTotalVotes.push(Number(data[index]["votes"]));
+            if(data[index]["votes"] < minTotalVotes){
+              minTotalVotes = data[index]["votes"];
+            } else if(data[index]["votes"] > maxTotalVotes){
+              maxTotalVotes = data[index]["votes"];
+            }
+          }
+        }
+        let selectedMinTotalVotesOptions = document.getElementById("selectByMinTotalVotesInMyYak");
+        for(let i = minTotalVotes; i <= maxTotalVotes; i++) {
+          addOption(selectedMinTotalVotesOptions, i);
+        }
+        let selectedMaxTotalVotesOptions = document.getElementById("selectByMaxTotalVotesInMyYak");
+        for(let i = maxTotalVotes; i >= minTotalVotes; i--) {
+          addOption(selectedMaxTotalVotesOptions, i);
+        }
         table.innerHTML = "";
         //This function aims to add a cell to a row
         function addCell(tagName, text){
