@@ -23,10 +23,10 @@ function post(idName){
     document.getElementById(idName).value = "";
     switch(idName){
       case "postContentInAllYak":
-        displayAllYak();
+        filterByMultiElementsInAllYak();
         break;
       case "postContentInMyYak":
-        displayMyYak();
+        filterByMultiElementsInMyYak();
         break;
     }
   });
