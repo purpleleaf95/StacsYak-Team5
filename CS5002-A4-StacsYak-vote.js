@@ -21,10 +21,10 @@ function vote(yakId, voteType, pageName){
     }
     switch(pageName){
       case "allYak":
-        displayAllYak();
+        filterByMultiElementsInAllYak();
         break;
       case "myYak":
-        displayMyYak();
+        filterByMultiElementsInMyYak();
         break;
     }
   });
