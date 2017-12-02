@@ -1,6 +1,6 @@
 function filterByMultiElementsInAllYak(){
-  //const selectedMinHour = document.getElementById("selectByMinHourInAllYak);
-  //const selectedMaxHour = document.getElementById("selectByMaxHourInAllYak");
+  const selectedMinHour = document.getElementById("selectByMinHourInAllYak").value;
+  const selectedMaxHour = document.getElementById("selectByMaxHourInAllYak").value;
   const selectedUserNick = document.getElementById("selectByUserNickInAllYak").value;
   const selectedMinTotalVotes = document.getElementById("selectByMinTotalVotesInAllYak").value;
   const selectedMaxTotalVotes = document.getElementById("selectByMaxTotalVotesInAllYak").value;
@@ -17,7 +17,8 @@ function filterByMultiElementsInAllYak(){
       } else {
         //  Create newAlbums to contain filtered array
         let newData = [];
-        newData = filterByOneElement(data, "userNick", selectedUserNick);
+        newData = filterBetweenHours(data, selectedMinHour, selectedMaxHour);
+        newData = filterByOneElement(newData, "userNick", selectedUserNick);
         newData = filterBetweenVotes(newData, selectedMinTotalVotes, selectedMaxTotalVotes);
         newData = filterByOneElement(newData, "userVote", selectedMyVoteType);
         newData = filterByContent(newData, selectedContent);

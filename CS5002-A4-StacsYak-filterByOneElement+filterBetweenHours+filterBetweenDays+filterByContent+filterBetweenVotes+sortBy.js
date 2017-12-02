@@ -17,13 +17,16 @@ function filterByOneElement(array, element, value) {
 }
 
 function filterBetweenHours(array, from, to){
-  /*let newArray = [];
+  let newArray = [];
+  let currentTime = Date.parse(new Date());
   for(let index = 0; index < array.length; index++){
-    let currentTime = array[index]["timestamp"];
-    let currentDate = Number(currentTime.substring())
-    let currentHour = Number(currentTime.substring())
+    let yakTime = Date.parse(array[index]["timestamp"]);
+    let hourDifference = Number((currentTime - yakTime) / 3600000);
+    if (hourDifference >= (from - 1) && hourDifference < to) {
+      newArray.push(array[index]);
+    }
   }
-  return newArray;*/
+  return newArray;
 }
 
 function filterBetweenDays(array, from, to){
@@ -50,9 +53,9 @@ function filterByContent(array, text){
 function filterBetweenVotes(array, from, to){
   let newArray = [];
   for (let index = 0; index < array.length; index++) {
-      if (array[index]["votes"] >= from && array[index]["votes"] <= to) {
-        newArray.push(array[index]);
-      }
+    if (array[index]["votes"] >= from && array[index]["votes"] <= to) {
+      newArray.push(array[index]);
+    }
   }
   return newArray;
 }
