@@ -14,10 +14,10 @@ function del(yakID, pageName) {
       }
       switch(pageName){
         case "allYak":
-          displayAllYak();
+          filterByMultiElementsInAllYak();
           break;
         case "myYak":
-          displayMyYak();
+          filterByMultiElementsInMyYak();
           break;
       }
     });
