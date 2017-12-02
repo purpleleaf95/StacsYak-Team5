@@ -30,7 +30,16 @@ function filterBetweenHours(array, from, to){
 }
 
 function filterBetweenDays(array, from, to){
-
+  let newArray = [];
+  let currentTime = Date.parse(new Date());
+  for(let index = 0; index < array.length; index++){
+    let yakTime = Date.parse(array[index]["timestamp"]);
+    let hourDifference = Number((currentTime - yakTime) / 86400000);
+    if (hourDifference >= (from - 1) && hourDifference < to) {
+      newArray.push(array[index]);
+    }
+  }
+  return newArray;
 }
 
 function filterByContent(array, text){

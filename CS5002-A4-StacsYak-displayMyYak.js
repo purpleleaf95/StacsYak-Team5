@@ -21,12 +21,12 @@ function displayMyYak(){
             selectList.appendChild(option);
         };
         //  Add selectByHour options
-        let selectedMinHourOptions = document.getElementById("selectByMinHourInMyYak");
+        let selectedMinHourOptions = document.getElementById("selectByMinDayInMyYak");
         selectedMinHourOptions.innerHTML = "";
         for (let hour = 1; hour <= 7; hour++) {
           addOption(selectedMinHourOptions, hour);
         }
-        let selectedMaxHourOptions = document.getElementById("selectByMaxHourInMyYak");
+        let selectedMaxHourOptions = document.getElementById("selectByMaxDayInMyYak");
         selectedMaxHourOptions.innerHTML = "";
         for (let hour = 7; hour >= 1; hour --) {
           addOption(selectedMaxHourOptions, hour);
