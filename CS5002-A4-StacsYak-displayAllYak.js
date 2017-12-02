@@ -1,34 +1,36 @@
 //  This function aims to show Yaks post in the recent two days
 function displayAllYak(){
-  // Set style
+  //  Set style
   document.getElementById("showAllYak").style.display = "block";
   document.getElementById("showMyYak").style.display = "none";
   document.getElementById("showMyProfile").style.display = "none";
   let table = document.getElementById("allYakResult");
+  //  Empty content input box
   document.getElementById("selectByContentInAllYak").value = "";
   //  This function aims to add an option to the end of a select list
-  function addOption(selectList, data) {
-      let option = document.createElement("option");
-      option.value = data;
-      option.text = String(data);
-      selectList.appendChild(option);
+  function addOption(selectList, data){
+    let option = document.createElement("option");
+    option.value = data;
+    option.text = String(data);
+    selectList.appendChild(option);
   };
   //  Send HTTP request
   fetch(URL + "/yaks" + keyQuery)
     .then(response => response.json())
     .then(data => {
       if(data["error"] != undefined){
+        //  Alert the user when failed with error specified
         document.getElementById("showAllYak").innerHTML = String("Error: " + data["error"]);
       } else {
         //  Add selectByHour options
         let selectedMinHourOptions = document.getElementById("selectByMinHourInAllYak");
         selectedMinHourOptions.innerHTML = "";
-        for (let hour = 1; hour <= 48; hour++) {
+        for(let hour = 1; hour <= 48; hour++){
           addOption(selectedMinHourOptions, hour);
         }
         let selectedMaxHourOptions = document.getElementById("selectByMaxHourInAllYak");
         selectedMaxHourOptions.innerHTML = "";
-        for (let hour = 48; hour >= 1; hour --) {
+        for(let hour = 48; hour >= 1; hour --){
           addOption(selectedMaxHourOptions, hour);
         }
         //  Add selectByMyVoteType options
@@ -58,55 +60,57 @@ function displayAllYak(){
         let allUserNick = [];
         for(let index = 0; index < data.length; index++){
           //  If a specific user nickname cannot be found in allUserNick, put it to the end of the array
-          if(allUserNick.indexOf(data[index]["userNick"]) == -1) {
+          if(allUserNick.indexOf(data[index]["userNick"]) == -1){
             allUserNick.push(data[index]["userNick"]);
           }
         }
+        //  Sort the array to make it easier to find a specific userNick
         allUserNick.sort(function sortByUpperCase(a, b){
-          if(a.toUpperCase() < b.toUpperCase()) {
-              return -1;
+          if(a.toUpperCase() < b.toUpperCase()){
+            return -1;
           } else if (a.toUpperCase() > b.toUpperCase()){
-              return 1;
+            return 1;
           } else {
-              return 0;
+            return 0;
           }
         });
-        for(let index = 0; index < allUserNick.length; index++) {
+        for(let index = 0; index < allUserNick.length; index++){
           addOption(selectedUserNickOptions, allUserNick[index]);
         }
         //  Add selectByTotalVotes options
         let allTotalVotes = [];
+        //  Find min and max votes
         let minTotalVotes = data[0]["votes"];
         let maxTotalVotes = data[0]["votes"];
         for(let index = 0; index < data.length; index++){
-          if(allTotalVotes.indexOf(data[index]["votes"]) == -1) {
+          if(allTotalVotes.indexOf(data[index]["votes"]) == -1){
             allTotalVotes.push(Number(data[index]["votes"]));
             if(data[index]["votes"] < minTotalVotes){
               minTotalVotes = data[index]["votes"];
-            } else if(data[index]["votes"] > maxTotalVotes){
+            } else if (data[index]["votes"] > maxTotalVotes){
               maxTotalVotes = data[index]["votes"];
             }
           }
         }
         let selectedMinTotalVotesOptions = document.getElementById("selectByMinTotalVotesInAllYak");
         selectedMinTotalVotesOptions.innerHTML = "";
-        for(let i = minTotalVotes; i <= maxTotalVotes; i++) {
+        for(let i = minTotalVotes; i <= maxTotalVotes; i++){
           addOption(selectedMinTotalVotesOptions, i);
         }
         let selectedMaxTotalVotesOptions = document.getElementById("selectByMaxTotalVotesInAllYak");
         selectedMaxTotalVotesOptions.innerHTML = "";
-        for(let i = maxTotalVotes; i >= minTotalVotes; i--) {
+        for(let i = maxTotalVotes; i >= minTotalVotes; i--){
           addOption(selectedMaxTotalVotesOptions, i);
         }
         table.innerHTML = "";
-        //This function aims to add a cell to a row
+        //  This function aims to add a cell to a row
         function addCell(tagName, text){
-            let tag = document.createElement(String(tagName));
-            let txt = document.createTextNode(text);
-            tag.appendChild(txt);
-            tr.appendChild(tag);
+          let tag = document.createElement(String(tagName));
+          let txt = document.createTextNode(text);
+          tag.appendChild(txt);
+          tr.appendChild(tag);
         };
-        // This function aims to add a Button to a row
+        //  This function aims to add a Button to a row
         function addCellButtion(text, onclickFunction){
           let td = document.createElement("td");
           let button = document.createElement("button");

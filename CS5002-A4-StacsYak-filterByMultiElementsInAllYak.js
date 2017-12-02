@@ -1,4 +1,6 @@
+//  This function aims to display allYakResult table with filtering and sorting rules applied accumulatively
 function filterByMultiElementsInAllYak(){
+  //  Get values of select and input boxes
   const selectedMinHour = document.getElementById("selectByMinHourInAllYak").value;
   const selectedMaxHour = document.getElementById("selectByMaxHourInAllYak").value;
   const selectedUserNick = document.getElementById("selectByUserNickInAllYak").value;
@@ -13,9 +15,10 @@ function filterByMultiElementsInAllYak(){
     .then(response => response.json())
     .then(data => {
       if(data["error"] != undefined){
+        //  Alert the user when failed with error specified
         document.getElementById("showAllYak").innerHTML = String("Error: " + data["error"]);
       } else {
-        //  Create newAlbums to contain filtered array
+        //  Create newData to contain filtered array
         let newData = [];
         newData = filterBetweenHours(data, selectedMinHour, selectedMaxHour);
         newData = filterByOneElement(newData, "userNick", selectedUserNick);
@@ -28,12 +31,12 @@ function filterByMultiElementsInAllYak(){
         }
         let table = document.getElementById("allYakResult");
         table.innerHTML = "";
-        //This function aims to add a cell to a row
+        //  This function aims to add a cell to a row
         function addCell(tagName, text){
-            let tag = document.createElement(String(tagName));
-            let txt = document.createTextNode(text);
-            tag.appendChild(txt);
-            tr.appendChild(tag);
+          let tag = document.createElement(String(tagName));
+          let txt = document.createTextNode(text);
+          tag.appendChild(txt);
+          tr.appendChild(tag);
         };
         // This function aims to add a Button to a row
         function addCellButtion(text, onclickFunction){
@@ -56,19 +59,19 @@ function filterByMultiElementsInAllYak(){
         addCell("th", "UPVOTE");
         addCell("th", "DOWNVOTE");
         table.appendChild(tr);
-        //  Alert the user when no result is found
-        if (newData.length == 0) {
-            alert("No result. Please check your filtering rules.");
-            var tr = document.createElement("tr");
-            addCell("td", "-no result-");
-            addCell("td", "-no result-");
-            addCell("td", "-no result-");
-            addCell("td", "-no result-");
-            addCell("td", "-no result-");
-            addCell("td", "-no result-");
-            addCell("td", "-no result-");
-            addCell("td", "-no result-");
-            table.appendChild(tr);
+        if(newData.length == 0){
+          //  Alert the user when no result is found
+          alert("No result. Please check your filtering rules.");
+          var tr = document.createElement("tr");
+          addCell("td", "-no result-");
+          addCell("td", "-no result-");
+          addCell("td", "-no result-");
+          addCell("td", "-no result-");
+          addCell("td", "-no result-");
+          addCell("td", "-no result-");
+          addCell("td", "-no result-");
+          addCell("td", "-no result-");
+          table.appendChild(tr);
         } else {
           //  Show the table's contents
           for(let index = 0; index < newData.length; index++){

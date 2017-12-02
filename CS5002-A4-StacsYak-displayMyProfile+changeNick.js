@@ -4,7 +4,7 @@ function displayMyProfile(){
   document.getElementById("showAllYak").style.display = "none";
   document.getElementById("showMyYak").style.display = "none";
   document.getElementById("showMyProfile").style.display = "block";
-  //  Show user profile
+  //  Send HTTP request
   fetch(URL + "/user" + keyQuery)
     .then(response => response.json())
     .then(data => {
@@ -21,7 +21,7 @@ function displayMyProfile(){
 }
 
 //  This function aims to change user's nickname
-function changeNick() {
+function changeNick(){
   const message = {
     "userNick": document.getElementById("newNick").value
   };
@@ -36,7 +36,7 @@ function changeNick() {
   fetch(URL + "/user" + keyQuery, initObject)
   .then(response => response.json())
   .then(data => {
-    if(data["error"] == undefined) {
+    if(data["error"] == undefined){
       alert("Nickname is successfully changed.");
     } else {
       alert("Change failed. (Error: " + data["error"] + ")");

@@ -1,4 +1,4 @@
-//  This function aims to up/down vote a Yak
+//  This function aims to up/down vote a Yak in a specific page
 function vote(yakId, voteType, pageName){
   const message = {
     direction: voteType
@@ -12,20 +12,22 @@ function vote(yakId, voteType, pageName){
   };
   //  Send HTTP request
   fetch(URL + "/yaks/" + yakId + "/vote" + keyQuery, initObject)
-  .then(response => response.json())
-  .then(data => {
-    if(data["error"] == undefined) {
-      alert("Yak is successfully voted.");
-    } else {
-      alert("Vote failed. (Error: " + data["error"] + ")");
-    }
-    switch(pageName){
-      case "allYak":
-        filterByMultiElementsInAllYak();
-        break;
-      case "myYak":
-        filterByMultiElementsInMyYak();
-        break;
-    }
-  });
+    .then(response => response.json())
+    .then(data => {
+      //  Tell the user if vote is successful
+      if(data["error"] == undefined){
+        alert("Yak is successfully voted.");
+      } else {
+        alert("Vote failed. (Error: " + data["error"] + ")");
+      }
+      //  Refresh the respective page with filter and sort applied
+      switch(pageName){
+        case "allYak":
+          filterByMultiElementsInAllYak();
+          break;
+        case "myYak":
+          filterByMultiElementsInMyYak();
+          break;
+      }
+    });
 }
