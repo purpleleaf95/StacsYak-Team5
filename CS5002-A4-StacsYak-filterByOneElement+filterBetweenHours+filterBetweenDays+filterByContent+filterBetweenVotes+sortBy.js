@@ -26,30 +26,33 @@ function filterBetweenHours(array, from, to){
   return newArray;*/
 }
 
-function filterBetweenVotes(array, from, to){
+function filterBetweenDays(array, from, to){
+
+}
+
+function filterByContent(array, text){
   let newArray = [];
-  if (from == "All" && to == "All") {
+  if(text == ""){
+    //  newArray should be the same as array
     for (let index = 0; index < array.length; index++) {
       newArray.push(array[index]);
     }
-  } else if (from == "All") {
-    for (let index = 0; index < array.length; index++) {
-      if (array[index]["votes"] <= to) {
-        newArray.push(array[index]);
-      }
-    }
-  } else if (to == "All") {
-    for (let index = 0; index < array.length; index++) {
-      if (array[index]["votes"] >= from) {
-        newArray.push(array[index]);
-      }
-    }
   } else {
     for (let index = 0; index < array.length; index++) {
+        if (array[index]["content"].indexOf(text) != -1) {
+            newArray.push(array[index]);
+        }
+    }
+  }
+  return newArray;
+}
+
+function filterBetweenVotes(array, from, to){
+  let newArray = [];
+  for (let index = 0; index < array.length; index++) {
       if (array[index]["votes"] >= from && array[index]["votes"] <= to) {
         newArray.push(array[index]);
       }
-    }
   }
   return newArray;
 }
@@ -74,9 +77,17 @@ function sortBy(element) {
       break;
   }
   return function (a, b) {
-    if(a[element] < b[element]) {
+    if(element == "userNick" || element == "content"){
+      //  Ignore case
+      var compareA = String(a[element]).toUpperCase();
+      var compareB = String(b[element]).toUpperCase();
+    } else {
+      var compareA = a[element];
+      var compareB = b[element];
+    }
+    if(compareA < compareB) {
         return -1;
-    } else if (a[element] > b[element]){
+    } else if (compareA > compareB){
         return 1;
     } else {
         return 0;

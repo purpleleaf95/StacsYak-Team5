@@ -9,7 +9,7 @@
   <script src="CS5002-A4-StacsYak-del.js"></script>
   <script src="CS5002-A4-StacsYak-post+postInAllYak+postInMyYak.js"></script>
   <script src="CS5002-A4-StacsYak-vote.js"></script>
-  <script src="CS5002-A4-StacsYak-filterByOneElement+filterBetweenHours+filterBetweenVotes+sortBy.js"></script>
+  <script src="CS5002-A4-StacsYak-filterByOneElement+filterBetweenHours+filterBetweenDays+filterByContent+filterBetweenVotes+sortBy.js"></script>
   <script src="CS5002-A4-StacsYak-filterByMultiElementsInAllYak.js"></script>
   <script src="CS5002-A4-StacsYak-filterByMultiElementsInMyYak.js"></script>
   <script src="CS5002-A4-StacsYak-displayAllYak.js"></script>
@@ -36,41 +36,26 @@
     <div id="filterBar" align="left" style="margin-left:20px">
       <br>
         <span> Post between the latest </span>
-        <select id="selectByMinHourInAllYak" onchange=filterByMultiElementsInAllYak()>
-          <option> 1 </option>
-        </select>
+        <select id="selectByMinHourInAllYak" onchange=filterByMultiElementsInAllYak()></select>
         <span> and </span>
-        <select id="selectByMaxHourInAllYak" onchange=filterByMultiElementsInAllYak()>
-          <option> 48 </option>
-        </select>
+        <select id="selectByMaxHourInAllYak" onchange=filterByMultiElementsInAllYak()></select>
         <span> hours by </span>
-        <select id="selectByUserNickInAllYak" style="width:50px" onchange=filterByMultiElementsInAllYak()>
-          <option> All </option>
-        </select>
+        <select id="selectByUserNickInAllYak" style="width:50px" onchange=filterByMultiElementsInAllYak()></select>
         <span> (Nickname)&nbsp;|&nbsp;Total votes ranges from </span>
-        <select id="selectByMinTotalVotesInAllYak" onchange=filterByMultiElementsInAllYak()>
-          <option> All </option>
-        </select>
+        <select id="selectByMinTotalVotesInAllYak" onchange=filterByMultiElementsInAllYak()></select>
         <span> to </span>
-        <select id="selectByMaxTotalVotesInAllYak" onchange=filterByMultiElementsInAllYak()>
-          <option> All </option>
-        </select>
+        <select id="selectByMaxTotalVotesInAllYak" onchange=filterByMultiElementsInAllYak()></select>
         <span> &nbsp;|&nbsp;My vote type is </span>
-        <select id="selectByMyVoteTypeInAllYak" onchange=filterByMultiElementsInAllYak()>
-          <option> All </option>
-        </select>
+        <select id="selectByMyVoteTypeInAllYak" onchange=filterByMultiElementsInAllYak()></select>
         <span> &nbsp;|&nbsp;Contents include </span>
-        <input type="search" name="selectByContentInAllYak" id="selectContent" onchange=filterByMultiElementsInAllYak()>
+        <input type="search" id="selectByContentInAllYak">
+        <button class="submitButton" onclick=filterByMultiElementsInAllYak() type="submit" style="width:100px; padding: 10px; font-size:10px" value="go">Go</button>
       </br>
       <br>
         <span> Sorted by </span>
-        <select id="sortByInAllYak" onchange=filterByMultiElementsInAllYak()>
-          <option>Time</option>
-        </select>
+        <select id="sortByInAllYak" onchange=filterByMultiElementsInAllYak()></select>
         <span> &nbsp;|&nbsp;Ascending/Descending </span>
-        <select id="ascendingOrDescendingInAllYak" onchange=filterByMultiElementsInAllYak()>
-          <option>Descending</option>
-        </select>
+        <select id="ascendingOrDescendingInAllYak" onchange=filterByMultiElementsInAllYak()></select>
       </br>
     </div>
     <div>
@@ -86,37 +71,24 @@
       <div id="filterBar" align="left" style="margin-left:20px">
         <br>
           <span> Post between the latest </span>
-          <select id="selectByMinHourInMyYak" onchange=filterByMultiElementsInMyYak()>
-            <option> 1 </option>
-          </select>
+          <select id="selectByMinHourInMyYak" onchange=filterByMultiElementsInMyYak()></select>
           <span> and </span>
-          <select id="selectByMaxHourInMyYak" onchange=filterByMultiElementsInMyYak()>
-            <option> 7 </option>
-          </select>
+          <select id="selectByMaxHourInMyYak" onchange=filterByMultiElementsInMyYak()></select>
           <span> days&nbsp;|&nbsp;Total votes ranges from </span>
-          <select id="selectByMinTotalVotesInMyYak" onchange=filterByMultiElementsInMyYak()>
-            <option> All </option>
-          </select>
+          <select id="selectByMinTotalVotesInMyYak" onchange=filterByMultiElementsInMyYak()></select>
           <span> to </span>
-          <select id="selectByMaxTotalVotesInMyYak" onchange=filterByMultiElementsInMyYak()>
-            <option> All </option>
-          </select>
+          <select id="selectByMaxTotalVotesInMyYak" onchange=filterByMultiElementsInMyYak()></select>
           <span> &nbsp;|&nbsp;My vote type is </span>
-          <select id="selectByMyVoteTypeInMyYak" onchange=filterByMultiElementsInMyYak()>
-            <option> All </option>
-          </select>
+          <select id="selectByMyVoteTypeInMyYak" onchange=filterByMultiElementsInMyYak()></select>
           <span> &nbsp;|&nbsp;Contents include </span>
-          <input type="search" name="selectByContentInMyYak" id="selectContent" onchange=filterByMultiElementsInMyYak()>
+          <input type="search" id="selectByContentInMyYak">
+          <button class = "submitButton" onclick=filterByMultiElementsInMyYak() type="submit" style="width:100px; padding: 10px; font-size:10px" value="go">Go</button>
         </br>
         <br>
           <span> Sorted by </span>
-          <select id="sortByInMyYak" onchange=filterByMultiElementsInMyYak()>
-            <option>Time</option>
-          </select>
+          <select id="sortByInMyYak" onchange=filterByMultiElementsInMyYak()></select>
           <span> &nbsp;|&nbsp;Ascending/Descending </span>
-          <select id="ascendingOrDescendingInMyYak" onchange=filterByMultiElementsInMyYak()>
-            <option>Descending</option>
-          </select>
+          <select id="ascendingOrDescendingInMyYak" onchange=filterByMultiElementsInMyYak()></select>
         </br>
       </div>
       <div>

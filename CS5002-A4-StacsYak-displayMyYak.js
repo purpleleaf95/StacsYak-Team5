@@ -4,6 +4,7 @@ function displayMyYak(){
   document.getElementById("showAllYak").style.display = "none";
   document.getElementById("showMyYak").style.display = "block";
   document.getElementById("showMyProfile").style.display = "none";
+  document.getElementById("selectByContentInMyYak").value = "";
   let table = document.getElementById("myYakResult");
   //  Send HTTP request
   fetch(URL + "/user/yaks" + keyQuery)
@@ -21,25 +22,33 @@ function displayMyYak(){
         };
         //  Add selectByHour options
         let selectedMinHourOptions = document.getElementById("selectByMinHourInMyYak");
-        for (let hour = 2; hour <= 7; hour++) {
+        selectedMinHourOptions.innerHTML = "";
+        for (let hour = 1; hour <= 7; hour++) {
           addOption(selectedMinHourOptions, hour);
         }
         let selectedMaxHourOptions = document.getElementById("selectByMaxHourInMyYak");
-        for (let hour = 6; hour >= 1; hour --) {
+        selectedMaxHourOptions.innerHTML = "";
+        for (let hour = 7; hour >= 1; hour --) {
           addOption(selectedMaxHourOptions, hour);
         }
         //  Add selectByMyVoteType options
         let selectedMyVoteTypeOptions = document.getElementById("selectByMyVoteTypeInMyYak");
+        selectedMyVoteTypeOptions.innerHTML = "";
+        addOption(selectedMyVoteTypeOptions, "All");
         addOption(selectedMyVoteTypeOptions, "none");
         addOption(selectedMyVoteTypeOptions, "up");
         addOption(selectedMyVoteTypeOptions, "down");
         //  Add sortBy options
         let sortedByOptions = document.getElementById("sortByInMyYak");
+        sortedByOptions.innerHTML = "";
+        addOption(sortedByOptions, "Time");
         addOption(sortedByOptions, "Content");
         addOption(sortedByOptions, "Total votes");
         addOption(sortedByOptions, "User vote");
         //  Add ascendingOrDescending options
         let ascendingOrDescendingOptions = document.getElementById("ascendingOrDescendingInMyYak");
+        ascendingOrDescendingOptions.innerHTML = "";
+        addOption(ascendingOrDescendingOptions, "Descending");
         addOption(ascendingOrDescendingOptions, "Ascending");
         //  Add selectByTotalVotes options
         let allTotalVotes = [];
@@ -56,10 +65,12 @@ function displayMyYak(){
           }
         }
         let selectedMinTotalVotesOptions = document.getElementById("selectByMinTotalVotesInMyYak");
+        selectedMinTotalVotesOptions.innerHTML = "";
         for(let i = minTotalVotes; i <= maxTotalVotes; i++) {
           addOption(selectedMinTotalVotesOptions, i);
         }
         let selectedMaxTotalVotesOptions = document.getElementById("selectByMaxTotalVotesInMyYak");
+        selectedMaxTotalVotesOptions.innerHTML = "";
         for(let i = maxTotalVotes; i >= minTotalVotes; i--) {
           addOption(selectedMaxTotalVotesOptions, i);
         }
@@ -84,7 +95,7 @@ function displayMyYak(){
         //  Show the table's head
         let tr = document.createElement("tr");
         addCell("th", "TIME");
-        addCell("th", "USER NAME");
+        addCell("th", "NICKNAME");
         addCell("th", "CONTENT");
         addCell("th", "TOTAL VOTES");
         addCell("th", "USER VOTE");

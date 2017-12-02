@@ -1,9 +1,10 @@
 function filterByMultiElementsInMyYak(){
-  //const selectedMinHour = document.getElementById("selectByMinHourInMyYak);
-  //const selectedMaxHour = document.getElementById("selectByMaxHourInMyYak");
+  const selectedMinHour = document.getElementById("selectByMinHourInMyYak");
+  const selectedMaxHour = document.getElementById("selectByMaxHourInMyYak");
   const selectedMinTotalVotes = document.getElementById("selectByMinTotalVotesInMyYak").value;
   const selectedMaxTotalVotes = document.getElementById("selectByMaxTotalVotesInMyYak").value;
   const selectedMyVoteType = document.getElementById("selectByMyVoteTypeInMyYak").value;
+  const selectedContent = document.getElementById("selectByContentInMyYak").value;
   const sortedBy = document.getElementById("sortByInMyYak").value;
   const ascendingOrDescending = document.getElementById("ascendingOrDescendingInMyYak").value;
   //  Send HTTP request
@@ -17,6 +18,7 @@ function filterByMultiElementsInMyYak(){
         let newData = [];
         newData = filterBetweenVotes(data, selectedMinTotalVotes, selectedMaxTotalVotes);
         newData = filterByOneElement(newData, "userVote", selectedMyVoteType);
+        newData = filterByContent(newData, selectedContent);
         newData.sort(sortBy(String(sortedBy)));
         if(ascendingOrDescending == "Descending"){
           newData.reverse();
@@ -43,7 +45,7 @@ function filterByMultiElementsInMyYak(){
         //  Show the table's head
         var tr = document.createElement("tr");
         addCell("th", "TIME");
-        addCell("th", "USER NAME");
+        addCell("th", "NICKNAME");
         addCell("th", "CONTENT");
         addCell("th", "TOTAL VOTES");
         addCell("th", "USER VOTE");

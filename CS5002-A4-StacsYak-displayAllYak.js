@@ -5,6 +5,7 @@ function displayAllYak(){
   document.getElementById("showMyYak").style.display = "none";
   document.getElementById("showMyProfile").style.display = "none";
   let table = document.getElementById("allYakResult");
+  document.getElementById("selectByContentInAllYak").value = "";
   //  This function aims to add an option to the end of a select list
   function addOption(selectList, data) {
       let option = document.createElement("option");
@@ -21,29 +22,39 @@ function displayAllYak(){
       } else {
         //  Add selectByHour options
         let selectedMinHourOptions = document.getElementById("selectByMinHourInAllYak");
-        for (let hour = 2; hour <= 48; hour++) {
+        selectedMinHourOptions.innerHTML = "";
+        for (let hour = 1; hour <= 48; hour++) {
           addOption(selectedMinHourOptions, hour);
         }
         let selectedMaxHourOptions = document.getElementById("selectByMaxHourInAllYak");
-        for (let hour = 47; hour >= 1; hour --) {
+        selectedMaxHourOptions.innerHTML = "";
+        for (let hour = 48; hour >= 1; hour --) {
           addOption(selectedMaxHourOptions, hour);
         }
         //  Add selectByMyVoteType options
         let selectedMyVoteTypeOptions = document.getElementById("selectByMyVoteTypeInAllYak");
+        selectedMyVoteTypeOptions.innerHTML = "";
+        addOption(selectedMyVoteTypeOptions, "All");
         addOption(selectedMyVoteTypeOptions, "none");
         addOption(selectedMyVoteTypeOptions, "up");
         addOption(selectedMyVoteTypeOptions, "down");
         //  Add sortBy options
         let sortedByOptions = document.getElementById("sortByInAllYak");
+        sortedByOptions.innerHTML = "";
+        addOption(sortedByOptions, "Time");
         addOption(sortedByOptions, "Nickname");
         addOption(sortedByOptions, "Content");
         addOption(sortedByOptions, "Total votes");
         addOption(sortedByOptions, "User vote");
         //  Add ascendingOrDescending options
         let ascendingOrDescendingOptions = document.getElementById("ascendingOrDescendingInAllYak");
+        ascendingOrDescendingOptions.innerHTML = "";
+        addOption(ascendingOrDescendingOptions, "Descending");
         addOption(ascendingOrDescendingOptions, "Ascending");
         //  Add selectByUserNick options
         let selectedUserNickOptions = document.getElementById("selectByUserNickInAllYak");
+        selectedUserNickOptions.innerHTML = "";
+        addOption(selectedUserNickOptions, "All");
         let allUserNick = [];
         for(let index = 0; index < data.length; index++){
           //  If a specific user nickname cannot be found in allUserNick, put it to the end of the array
@@ -78,10 +89,12 @@ function displayAllYak(){
           }
         }
         let selectedMinTotalVotesOptions = document.getElementById("selectByMinTotalVotesInAllYak");
+        selectedMinTotalVotesOptions.innerHTML = "";
         for(let i = minTotalVotes; i <= maxTotalVotes; i++) {
           addOption(selectedMinTotalVotesOptions, i);
         }
         let selectedMaxTotalVotesOptions = document.getElementById("selectByMaxTotalVotesInAllYak");
+        selectedMaxTotalVotesOptions.innerHTML = "";
         for(let i = maxTotalVotes; i >= minTotalVotes; i--) {
           addOption(selectedMaxTotalVotesOptions, i);
         }
@@ -106,7 +119,7 @@ function displayAllYak(){
         //  Show the table's head
         let tr = document.createElement("tr");
         addCell("th", "TIME");
-        addCell("th", "USER NAME");
+        addCell("th", "NICKNAME");
         addCell("th", "CONTENT");
         addCell("th", "TOTAL VOTES");
         addCell("th", "USER VOTE");

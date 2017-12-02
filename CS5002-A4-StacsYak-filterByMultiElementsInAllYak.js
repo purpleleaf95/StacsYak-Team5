@@ -5,6 +5,7 @@ function filterByMultiElementsInAllYak(){
   const selectedMinTotalVotes = document.getElementById("selectByMinTotalVotesInAllYak").value;
   const selectedMaxTotalVotes = document.getElementById("selectByMaxTotalVotesInAllYak").value;
   const selectedMyVoteType = document.getElementById("selectByMyVoteTypeInAllYak").value;
+  const selectedContent = document.getElementById("selectByContentInAllYak").value;
   const sortedBy = document.getElementById("sortByInAllYak").value;
   const ascendingOrDescending = document.getElementById("ascendingOrDescendingInAllYak").value;
   //  Send HTTP request
@@ -19,6 +20,7 @@ function filterByMultiElementsInAllYak(){
         newData = filterByOneElement(data, "userNick", selectedUserNick);
         newData = filterBetweenVotes(newData, selectedMinTotalVotes, selectedMaxTotalVotes);
         newData = filterByOneElement(newData, "userVote", selectedMyVoteType);
+        newData = filterByContent(newData, selectedContent);
         newData.sort(sortBy(String(sortedBy)));
         if(ascendingOrDescending == "Descending"){
           newData.reverse();
@@ -45,7 +47,7 @@ function filterByMultiElementsInAllYak(){
         //  Show the table's head
         var tr = document.createElement("tr");
         addCell("th", "TIME");
-        addCell("th", "USER NAME");
+        addCell("th", "NICKNAME");
         addCell("th", "CONTENT");
         addCell("th", "TOTAL VOTES");
         addCell("th", "USER VOTE");
