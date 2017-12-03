@@ -6,6 +6,7 @@
   color: #FFFFFF;
   font-weight: bold;
   text-transform: uppercase;
+  overflow:hidden;
 
 }
 
@@ -105,6 +106,7 @@ table{
   table-layout: fixed;
   text-align: left;
   border-collapse: collapse;
+  width: 100%;
 }
 
 #myId, #myNickname, #myTotalPosts, #myScore{
@@ -115,9 +117,7 @@ table{
   padding: 20px;
   text-align: center;
 }
-table{
-  align:center; 
-}
+
 
 table th,td:nth-child(4),
 table th,td:nth-child(5),
