@@ -2,10 +2,22 @@
   text-align: center;
   margin: 0px;
   padding: 15px;
-  background-color: #FF5722;
+  background-color: #3168e0;
   color: #FFFFFF;
   font-weight: bold;
   text-transform: uppercase;
+
+}
+
+input[type=search] {
+    width: 300px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=search]:focus {
+    width: 50%;
 }
 
 body {
@@ -24,7 +36,7 @@ button:hover {
 }
 
 .submitButton{
-  background-color: #FF5722;
+  background-color: #3168e0;
   border: none;
   color: white;
   width: 100px;
@@ -97,11 +109,14 @@ table{
 
 #myId, #myNickname, #myTotalPosts, #myScore{
   margin: 20px;
-  width:100%;
+  width: 50%;
   border-bottom: 3px solid black;
   border-collapse: collapse;
   padding: 20px;
   text-align: center;
+}
+table{
+  align:center; 
 }
 
 table th,td:nth-child(4),
@@ -120,12 +135,12 @@ table th,td:nth-child(8){
 input[type=text]{
   width: 500px;
   border: none;
-  border-bottom: 2px solid #FF5722;
+  border-bottom: 2px solid #3168e0;
   margin-bottom: 20px;
   font-size: 16px;
 }
 input[type=submit]{
-  background-color: #FF5722;
+  background-color: #3168e0;
   border: none;
   color: white;
   width: 600px;

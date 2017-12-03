@@ -19,20 +19,24 @@
 
 <body>
   <div id="header">
-    <h1>StacsYak - Team 5</h1>
+    <button id="myProfile" onclick="displayMyProfile()" style="float: left;"> MY PROFILE </button>
+    <button id="changeKey" onclick="changeKey()" style="float: right;"> CHANGE KEY </button>
+    <h1 align="center" >StacsYak - Team 5</h1>
+
+
   </div>
   <div>
-    <button id="allYak" onclick="displayAllYak()"> ALL YAK </button>
-    <button id="myYak" onclick="displayMyYak()"> MY YAK </button>
-    <button id="myProfile" onclick="displayMyProfile()"> MY PROFILE </button>
-    <button id="changeKey" onclick="changeKey()"> CHANGE KEY </button>
+    <button id="allYak" onclick="displayAllYak()" style="width:630px"> ALL YAK </button>
+    <button id="myYak" onclick="displayMyYak()" style="width:630px"> MY YAK </button>
   </div>
   <!--allYak Block -->
   <div id="showAllYak" style="padding:10px;  display:none">
     <div>
       NEW YAK: <input type="text" id="postContentInAllYak" style="width:400px" name="name">
-      <button class="submitButton" onclick="postInAllYak()" type="submit" value="Post" style="width:100px; padding: 10px; font-size:10px">POST</button>
-    </div>
+      <button class="submitButton" onclick="postInAllYak()" type="submit" value="Post" style="width:100px; padding: 10px; font-size:10px">POST</button> </br>
+    <input type="search" placeholder = "Search Yaks" type= "search" id="selectByContentInAllYak">
+    <button class="submitButton"  onclick=filterByMultiElementsInAllYak() type="submit" style="width:100px; padding: 7px; font-size:10px" value="go">Search</button>
+  </div>
     <div id="filterBar" align="left" style="margin-left:20px">
       <br>
         <span> Post between the latest </span>
@@ -47,9 +51,7 @@
         <select id="selectByMaxTotalVotesInAllYak" onchange=filterByMultiElementsInAllYak()></select>
         <span> &nbsp;|&nbsp;My vote type is </span>
         <select id="selectByMyVoteTypeInAllYak" onchange=filterByMultiElementsInAllYak()></select>
-        <span> &nbsp;|&nbsp;Contents include </span>
-        <input type="search" id="selectByContentInAllYak">
-        <button class="submitButton" onclick=filterByMultiElementsInAllYak() type="submit" style="width:50px; padding: 10px; font-size:10px" value="go">Go</button>
+
       </br>
       <br>
         <span> Sorted by </span>
@@ -66,7 +68,10 @@
   <div id="showMyYak" style="padding:10px;  display:none">
       <div>
         NEW YAK: <input type="text" id="postContentInMyYak" style="width:400px" name="name">
-        <button class="submitButton" onclick="postInMyYak()" type="submit" value="Post" style="width:100px; padding: 10px; font-size:10px">POST</button>
+        <button class="submitButton" onclick="postInMyYak()" type="submit" value="Post" style="width:100px; padding: 10px; font-size:10px">POST</button> </br>
+        <input type="search" id="selectByContentInMyYak"  placeholder = "Search Yaks" >
+        <button class = "submitButton" onclick=filterByMultiElementsInMyYak() type="submit" style="width:100px; padding: 7px; font-size:10px" value="go">Search</button>
+
       </div>
       <div id="filterBar" align="left" style="margin-left:20px">
         <br>
@@ -80,9 +85,9 @@
           <select id="selectByMaxTotalVotesInMyYak" onchange=filterByMultiElementsInMyYak()></select>
           <span> &nbsp;|&nbsp;My vote type is </span>
           <select id="selectByMyVoteTypeInMyYak" onchange=filterByMultiElementsInMyYak()></select>
-          <span> &nbsp;|&nbsp;Contents include </span>
+          <!-- <span> &nbsp;|&nbsp;Contents include </span>
           <input type="search" id="selectByContentInMyYak">
-          <button class = "submitButton" onclick=filterByMultiElementsInMyYak() type="submit" style="width:50px; padding: 10px; font-size:10px" value="go">Go</button>
+          <button class = "submitButton" onclick=filterByMultiElementsInMyYak() type="submit" style="width:50px; padding: 10px; font-size:10px" value="go">Go</button> -->
         </br>
         <br>
           <span> Sorted by </span>
@@ -97,19 +102,25 @@
   </div>
   <!--myProfile Block -->
   <div id="showMyProfile" style="padding:10px;  display:none">
-    <table>
+    <table align="center">
       <tr>
-        <th> MY KEY </th>
-        <th> MY ID </th>
-        <th> MY NICKNAME </th>
-        <th> MY SCORE </th>
-        <th> MY TOTAL POSTS </th>
+        <th>MY KEY </th>
+        <td id="myKey"></td>
       </tr>
       <tr>
-        <td id="myKey"></td>
+        <th> MY ID </th>
         <td id="myId"></td>
+      </tr>
+      <tr>
+        <th> MY NICKNAME </th>
         <td id="myNickname"></td>
+      </tr>
+      <tr>
+        <th>MY SCORE </th>
         <td id="myScore"></td>
+      </tr>
+      <tr>
+        <th> MY TOTAL POSTS</th>
         <td id="myTotalPosts"></td>
       </tr>
     </table>
